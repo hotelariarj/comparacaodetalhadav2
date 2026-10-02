@@ -58,7 +58,7 @@ function Status({ row }) {
   return <span className={`status status--${row.issue}`}><Icon size={16} weight="fill" />{row.status}</span>;
 }
 
-function AppShell({ children, currentNav, onNavigate }) {
+function AppShell({ children, currentNav, onNavigate, detailTabOpen }) {
   const [menuExpanded, setMenuExpanded] = useState(false);
   const [contextExpanded, setContextExpanded] = useState(false);
   const [company, setCompany] = useState("02 - Bourbon Curitiba Convention Hotel");
@@ -72,7 +72,7 @@ function AppShell({ children, currentNav, onNavigate }) {
     window.dispatchEvent(new CustomEvent("smartx-toast", { detail: `Ambiente alterado para ${value}.` }));
   };
   const navigate = (label) => { onNavigate(label); setMobileMenuOpen(false); };
-  const tabs = ["TOTVS News", "Meu TOTVS", "Comparação Detalhada"];
+  const tabs = ["TOTVS News", "Meu TOTVS", "Conciliações", ...(detailTabOpen ? ["Comparação Detalhada"] : [])];
   const toggleContext = () => {
     setCompanyDraft(company);
     setContextExpanded((value) => !value);
@@ -90,7 +90,11 @@ function AppShell({ children, currentNav, onNavigate }) {
       <div className="header-menu-anchor"><button type="button" className="environment" aria-label="Trocar ambiente" aria-expanded={headerMenu === "environment"} onClick={() => setHeaderMenu(headerMenu === "environment" ? null : "environment")}><span>{environment}</span><strong>Conciliador Contábil</strong><CaretDown size={16} /></button>{headerMenu === "environment" && <div className="header-popover environment-popover" role="menu"><strong>Ambiente</strong>{["Produção", "Homologação"].map((value) => <button type="button" role="menuitemradio" aria-checked={environment === value} key={value} onClick={() => chooseEnvironment(value)}>{environment === value && <Check weight="bold" />}{value}</button>)}</div>}</div>
       <div className="header-actions"><IconButton label="Aplicativos" onClick={() => navigate("Home")}><DotsNine size={22} /></IconButton><div className="header-menu-anchor"><IconButton label="Notificações" aria-expanded={headerMenu === "notifications"} onClick={() => setHeaderMenu(headerMenu === "notifications" ? null : "notifications")}><Bell size={22} /></IconButton>{headerMenu === "notifications" && <div className="header-popover notification-popover" role="dialog" aria-label="Notificações"><strong>Notificações</strong><p><span className="notification-dot" />A análise inteligente encontrou 3 sugestões.</p><button type="button" onClick={() => { setHeaderMenu(null); navigate("Comparação Detalhada"); }}>Ver comparação</button></div>}</div><IconButton className="lynn-action" label="Lynn, assistente TOTVS" onClick={() => window.dispatchEvent(new CustomEvent("smartx-toast", { detail: "Lynn está pronta para ajudar nesta rotina." }))}><Sparkle size={22} /></IconButton><div className="header-menu-anchor"><button type="button" className="avatar" aria-label="Perfil: Rafael R. Oliveira" aria-expanded={headerMenu === "profile"} onClick={() => setHeaderMenu(headerMenu === "profile" ? null : "profile")}>RO</button>{headerMenu === "profile" && <div className="header-popover profile-popover" role="menu"><strong>Rafael R. Oliveira</strong><span>Administrador</span><button type="button" role="menuitem" onClick={() => { setHeaderMenu(null); window.dispatchEvent(new CustomEvent("smartx-toast", { detail: "Preferências do perfil abertas." })); }}>Preferências</button></div>}</div></div>
     </header>
-    <nav className="product-tabs" aria-label="Abas abertas">{tabs.map((tab) => <button type="button" key={tab} className={tab === "Comparação Detalhada" ? "active" : ""} aria-current={tab === "Comparação Detalhada" ? "page" : undefined} onClick={() => tab === "Comparação Detalhada" ? navigate(tab) : window.dispatchEvent(new CustomEvent("smartx-toast", { detail: `${tab} selecionada.` }))}>{tab}{tab === "Comparação Detalhada" && <X size={16} aria-hidden="true" />}</button>)}</nav>
+    <nav className="product-tabs" aria-label="Abas abertas">{tabs.map((tab) => {
+      const destination = tab === "Conciliações" ? "Home" : tab;
+      const active = currentNav === destination;
+      return <button type="button" key={tab} className={active ? "active" : ""} aria-current={active ? "page" : undefined} onClick={() => tab === "TOTVS News" || tab === "Meu TOTVS" ? window.dispatchEvent(new CustomEvent("smartx-toast", { detail: `${tab} selecionada.` })) : navigate(destination)}>{tab}{tab === "Comparação Detalhada" && <X size={16} aria-hidden="true" />}</button>;
+    })}</nav>
     <div className={`context-bar ${contextExpanded ? "expanded" : ""}`}>
       <div className="context-bar-row">
         <button type="button" className="context-options" aria-expanded={contextExpanded} aria-controls="context-options-panel" onClick={toggleContext}>{contextExpanded ? "Ocultar opções" : "Exibir opções"} <CaretDown className={contextExpanded ? "rotate" : ""} size={18} /></button>
@@ -122,8 +126,9 @@ function AppShell({ children, currentNav, onNavigate }) {
 }
 
 export function App() {
-  const [currentNav, setCurrentNav] = useState("Comparação Detalhada");
-  const [accountDrilldown, setAccountDrilldown] = useState(true);
+  const [currentNav, setCurrentNav] = useState("Home");
+  const [accountDrilldown, setAccountDrilldown] = useState(false);
+  const [detailTabOpen, setDetailTabOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("Todos");
   const [filterOpen, setFilterOpen] = useState(false);
@@ -199,8 +204,18 @@ export function App() {
     setSelectedSuggestions(new Set()); setAiOpen(false); setToast(`${suggestionIds.length} ${suggestionIds.length === 1 ? "sugestão aplicada" : "sugestões aplicadas"} e registros conciliados.`);
   };
 
-  return <AppShell currentNav={currentNav} onNavigate={setCurrentNav}>
-    {currentNav !== "Comparação Detalhada" ? <ModulePage name={currentNav} onBack={() => setCurrentNav("Comparação Detalhada")} /> : accountDrilldown ? <>
+  const navigateTo = (destination) => {
+    if (destination === "Comparação Detalhada") setDetailTabOpen(true);
+    setCurrentNav(destination);
+  };
+  const openAccountComparison = () => {
+    setDetailTabOpen(true);
+    setAccountDrilldown(true);
+    setCurrentNav("Comparação Detalhada");
+  };
+
+  return <AppShell currentNav={currentNav} onNavigate={navigateTo} detailTabOpen={detailTabOpen}>
+    {currentNav === "Home" ? <HomeDashboard onOpenComparison={openAccountComparison} /> : currentNav !== "Comparação Detalhada" ? <ModulePage name={currentNav} onBack={() => navigateTo("Home")} /> : accountDrilldown ? <>
     <AccountDrilldown onBack={() => setAccountDrilldown(false)} onToast={setToast} versionLabel="V2" />
     {toast && <div className="toast" role="status"><CheckCircle weight="fill" /><span>{toast}</span><IconButton label="Fechar notificação" onClick={() => setToast("")}><X /></IconButton></div>}
     </> : <>
@@ -255,6 +270,109 @@ export function App() {
     {toast && <div className="toast" role="status"><CheckCircle weight="fill" /><span>{toast}</span><IconButton label="Fechar notificação" onClick={() => setToast("")}><X /></IconButton></div>}
     </>}
   </AppShell>;
+}
+
+const reconciliationGroups = [
+  {
+    id: "assets",
+    title: "Ativo Circulante",
+    code: "1.1",
+    status: "Em andamento",
+    tone: "warning",
+    progress: 67,
+    reconciled: "8 de 12 contas",
+    difference: "R$ 18.420,00",
+    accounts: [
+      { code: "1.1.01.001", name: "Caixa Geral", balance: "R$ 150.000,00", difference: "R$ 1.500,00", status: "Divergente", tone: "negative" },
+      { code: "1.1.02.001", name: "Banco Conta Movimento", balance: "R$ 850.000,00", difference: "R$ 800,00", status: "Em análise", tone: "warning" },
+      { code: "1.1.03.001", name: "Clientes Nacionais", balance: "R$ 428.300,00", difference: "R$ 0,00", status: "Conciliada", tone: "positive" },
+    ],
+  },
+  {
+    id: "liabilities",
+    title: "Passivo Circulante",
+    code: "2.1",
+    status: "Atenção",
+    tone: "negative",
+    progress: 75,
+    reconciled: "6 de 8 contas",
+    difference: "R$ 6.280,00",
+    accounts: [
+      { code: "2.1.01.001", name: "Fornecedores Nacionais", balance: "R$ 312.450,00", difference: "R$ 5.980,00", status: "Divergente", tone: "negative" },
+      { code: "2.1.02.001", name: "Obrigações Trabalhistas", balance: "R$ 186.900,00", difference: "R$ 300,00", status: "Em análise", tone: "warning" },
+      { code: "2.1.03.001", name: "Impostos a Recolher", balance: "R$ 94.120,00", difference: "R$ 0,00", status: "Conciliada", tone: "positive" },
+    ],
+  },
+  {
+    id: "results",
+    title: "Contas de Resultado",
+    code: "3",
+    status: "Conciliado",
+    tone: "positive",
+    progress: 100,
+    reconciled: "7 de 7 contas",
+    difference: "R$ 0,00",
+    accounts: [
+      { code: "3.1.01.001", name: "Receitas de Hospedagem", balance: "R$ 1.284.000,00", difference: "R$ 0,00", status: "Conciliada", tone: "positive" },
+      { code: "3.2.01.001", name: "Custos Operacionais", balance: "R$ 496.800,00", difference: "R$ 0,00", status: "Conciliada", tone: "positive" },
+    ],
+  },
+];
+
+function HomeDashboard({ onOpenComparison }) {
+  const [expandedGroups, setExpandedGroups] = useState(new Set(["assets"]));
+  const [accountMenu, setAccountMenu] = useState(null);
+  const toggleGroup = (id) => setExpandedGroups((current) => {
+    const next = new Set(current);
+    next.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
+
+  useEffect(() => {
+    if (!accountMenu) return undefined;
+    const close = (event) => { if (!event.target.closest(".home-account-actions")) setAccountMenu(null); };
+    document.addEventListener("pointerdown", close);
+    return () => document.removeEventListener("pointerdown", close);
+  }, [accountMenu]);
+
+  return <main id="main-content" className="main-content home-dashboard">
+    <nav className="breadcrumb" aria-label="Você está em"><span>Home</span></nav>
+    <section className="home-heading">
+      <div><span className="home-eyebrow">Conciliação contábil</span><h1>Visão geral</h1><p>Acompanhe o fechamento, identifique diferenças e acesse a comparação de cada conta.</p></div>
+      <div className="home-period"><span>Competência</span><strong>Agosto de 2024</strong><small>Atualizado hoje às 08:12</small></div>
+    </section>
+    <section className="home-kpis" aria-label="Resumo do fechamento">
+      <article><span>Progresso geral</span><strong>78%</strong><small>21 de 27 contas conciliadas</small><i><b style={{ width: "78%" }} /></i></article>
+      <article><span>Saldo contábil</span><strong>R$ 3.482.770,00</strong><small>Consolidado da competência</small></article>
+      <article><span>Diferença total</span><strong className="negative">R$ 24.700,00</strong><small>6 contas precisam de atenção</small></article>
+      <article><span>Sugestões da IA</span><strong>9</strong><small>Possíveis conciliações encontradas</small></article>
+    </section>
+    <section className="home-groups" aria-label="Grupos de contas">
+      <header><div><h2>Contas por grupo</h2><p>Expanda um grupo para consultar suas contas.</p></div><span>3 grupos</span></header>
+      {reconciliationGroups.map((group) => {
+        const expanded = expandedGroups.has(group.id);
+        return <article className={`home-group ${expanded ? "expanded" : ""}`} key={group.id}>
+          <button type="button" className="home-group-toggle" aria-expanded={expanded} aria-controls={`accounts-${group.id}`} onClick={() => toggleGroup(group.id)}>
+            <span className="home-group-icon"><ChartBar weight="duotone" /></span>
+            <span className="home-group-title"><small>{group.code}</small><strong>{group.title}</strong><em className={`home-state ${group.tone}`}>{group.status}</em></span>
+            <span className="home-group-progress"><small>{group.reconciled}</small><i><b style={{ width: `${group.progress}%` }} /></i></span>
+            <span className="home-group-difference"><small>Diferença</small><strong>{group.difference}</strong></span>
+            <CaretDown className={expanded ? "rotate" : ""} />
+          </button>
+          {expanded && <div className="home-account-grid" id={`accounts-${group.id}`}>
+            {group.accounts.map((account) => {
+              const menuId = `${group.id}-${account.code}`;
+              return <article className="home-account-card" key={account.code}>
+                <header><span><small>{account.code}</small><strong>{account.name}</strong></span><div className="home-account-actions"><IconButton label={`Ações de ${account.name}`} aria-expanded={accountMenu === menuId} onClick={() => setAccountMenu(accountMenu === menuId ? null : menuId)}><DotsThreeVertical weight="bold" /></IconButton>{accountMenu === menuId && <div className="home-account-menu" role="menu"><button type="button" role="menuitem" onClick={() => { setAccountMenu(null); onOpenComparison(account); }}><ChartBar />Comparação detalhada</button></div>}</div></header>
+                <dl><div><dt>Saldo contábil</dt><dd>{account.balance}</dd></div><div><dt>Diferença</dt><dd className={account.tone === "negative" ? "negative" : ""}>{account.difference}</dd></div></dl>
+                <footer><span className={`home-state ${account.tone}`}>{account.tone === "positive" ? <CheckCircle weight="fill" /> : <WarningCircle weight="fill" />}{account.status}</span><small>Última análise hoje</small></footer>
+              </article>;
+            })}
+          </div>}
+        </article>;
+      })}
+    </section>
+  </main>;
 }
 
 function ModulePage({ name, onBack }) {

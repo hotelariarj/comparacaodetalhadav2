@@ -5,6 +5,8 @@ Implementação responsiva da comparação por conta baseada na rota canônica `
 ## O que está incluído
 
 - Shell Smart X validado no Figma: header TOTVS, abas, barra de contexto e navegação da jornada.
+- Home de conciliação com indicadores, grupos expansíveis e cards de contas.
+- Menu de três pontos que abre a comparação detalhada em uma nova aba interna.
 - Resumo da conta com saldo contábil, valor do sistema, diferença e status.
 - Validação de cinco documentos com estados vazio, processamento e resultado.
 - Sugestões de conciliação com confiança, justificativa e ações de aceitar/rejeitar.
