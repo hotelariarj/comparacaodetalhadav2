@@ -49,11 +49,17 @@ function useAnalysisState() {
   return [state, setState];
 }
 
-export default function AccountDrilldown({ onBack, onToast, versionLabel = "" }) {
+const fallbackAccount = { code: "1.1.2.001", routeId: "1120001", name: "Banco Conta Movimento", balance: "R$ 850.000,00", systemValue: "R$ 849.200,00", difference: "R$ 800,00", status: "Divergente", tone: "negative", attachments: [] };
+
+export default function AccountDrilldown({ account = fallbackAccount, onBack, onToast, versionLabel = "" }) {
   const [documentState, setDocumentState] = useAnalysisState();
   const [suggestionState, setSuggestionState] = useAnalysisState();
   const [expandedDocument, setExpandedDocument] = useState(null);
   const [suggestions, setSuggestions] = useState(initialSuggestions.map((item) => ({ ...item, decision: "pending" })));
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [account?.code]);
 
   const decide = (id, decision) => {
     setSuggestions((items) => items.map((item) => item.id === id ? { ...item, decision } : item));
@@ -61,17 +67,20 @@ export default function AccountDrilldown({ onBack, onToast, versionLabel = "" })
   };
   const pending = suggestions.filter((item) => item.decision === "pending").length;
   const accepted = suggestions.filter((item) => item.decision === "accepted").length;
+  const selectedAccount = account || fallbackAccount;
+  const isMatched = selectedAccount.tone === "positive";
+  const accountLedgerRows = ledgerRows.map((row) => ({ ...row, meta: `Conta: ${selectedAccount.code}` }));
 
   return <main id="main-content" className="main-content account-drilldown">
-    <nav className="breadcrumb" aria-label="Você está em"><button type="button" onClick={onBack}>Comparação Detalhada</button><span>/</span><span>1.1.01.001 Caixa Geral</span></nav>
+    <nav className="breadcrumb" aria-label="Você está em"><button type="button" onClick={onBack}>Home</button><span>/</span><span>{selectedAccount.code} {selectedAccount.name}</span></nav>
     <section className="drilldown-heading">
-      <button type="button" className="icon-button" aria-label="Voltar para comparação" onClick={onBack}><ArrowLeft /></button>
-      <div><div className="heading-line"><h1>Comparação Detalhada</h1>{versionLabel && <span className="analysis-tag success">{versionLabel}</span>}</div><p>1.1.01.001 - Caixa Geral</p></div>
+      <button type="button" className="icon-button" aria-label="Voltar para a Home" onClick={onBack}><ArrowLeft /></button>
+      <div><div className="heading-line"><h1>Comparação Detalhada</h1>{versionLabel && <span className="analysis-tag success">{versionLabel}</span>}</div><p>{selectedAccount.code} - {selectedAccount.name}</p></div>
     </section>
 
     <section className="drilldown-card account-summary" aria-labelledby="account-summary-title">
       <h2 id="account-summary-title"><FileArrowUp />Resumo da Conta</h2>
-      <dl><div><dt>Saldo Contábil</dt><dd>R$ 150.000,00</dd></div><div><dt>Valor Sistema</dt><dd>R$ 148.500,00</dd></div><div><dt>Diferença</dt><dd className="negative">R$ 1.500,00</dd></div><div><dt>Status</dt><dd><span className="status status--valor"><WarningCircle weight="fill" />Divergente</span></dd></div></dl>
+      <dl><div><dt>Saldo Contábil</dt><dd>{selectedAccount.balance}</dd></div><div><dt>Valor Sistema</dt><dd>{selectedAccount.systemValue}</dd></div><div><dt>Diferença</dt><dd className={isMatched ? "positive" : "negative"}>{selectedAccount.difference}</dd></div><div><dt>Status</dt><dd><span className={`status ${isMatched ? "status--ok" : "status--valor"}`}>{isMatched ? <CheckCircle weight="fill" /> : <WarningCircle weight="fill" />}{selectedAccount.status}</span></dd></div></dl>
     </section>
 
     <section className="drilldown-card document-analysis" aria-labelledby="document-analysis-title">
@@ -106,7 +115,7 @@ export default function AccountDrilldown({ onBack, onToast, versionLabel = "" })
     </section>
 
     <section className="comparison-ledgers" aria-label="Comparação entre razão analítico e sistema financeiro">
-      <Ledger title="Razão Analítico (Contábil)" rows={ledgerRows} icon={<CheckCircle />} actions onInspect={(row) => onToast?.(`Detalhes de ${row.document} abertos.`)} />
+      <Ledger title="Razão Analítico (Contábil)" rows={accountLedgerRows} icon={<CheckCircle />} actions onInspect={(row) => onToast?.(`Detalhes de ${row.document} abertos.`)} />
       <Ledger title="Relatório Sistema (Sistema Financeiro)" rows={systemRows} icon={<WarningCircle />} action={<button className="button secondary" onClick={() => onToast?.("Sistema Financeiro aberto em modo demonstrativo.")}><ArrowSquareOut />Abrir Sistema</button>} />
     </section>
   </main>;

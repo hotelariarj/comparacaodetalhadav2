@@ -1,12 +1,12 @@
-# Design QA — Home e Comparação Detalhada V2
+# Design QA — Separação funcional da V2
 
-- Source visual truth: Smart X/Animalia shell from the deployed V2 at https://hotelariarj.github.io/comparacaodetalhadav2/
-- Rendered implementation: local V2 Home at http://127.0.0.1:4175/
+- Source visual truth: canonical detail flow at https://conciliador-contabil.lovable.app/account-drilldown/1110001 and the canonical V1 Home implementation.
+- Rendered implementation screenshot path: local V2 at http://127.0.0.1:4174/ (captured in the Codex in-app browser).
 - Viewport comparison: 1280 × 720 CSS px, same browser surface and density
 - Responsive verification: 390 × 844 CSS px
-- State: Home with Ativo Circulante expanded; account action menu; detailed-comparison tab open; return to Conciliações
-- Full-view evidence: the deployed Smart X detail screen and the new Home were emitted together at the same desktop viewport.
-- Focused-region evidence: product tabs, account-group accordion, account cards, overflow menu and canonical drilldown were inspected through screenshots and accessibility snapshots.
+- State: Home with Ativo Circulante expanded; account action menu; Caixa Geral and Banco Conta Movimento detail states; document and AI analysis complete; accept/reject decisions.
+- Full-view evidence: source and implementation captures were inspected at the same desktop browser surface; the V2 preserves the source page sequence while applying the existing Smart X/Animalia shell.
+- Focused-region evidence: account summary, document-analysis states, suggestion decisions, dual ledgers, product tabs, account-group accordion and overflow menu were inspected through screenshots and accessibility snapshots.
 
 ## Findings
 
@@ -16,22 +16,25 @@ No actionable P0, P1 or P2 findings remain.
 - Spacing and layout: KPI rhythm, accordion headers and account-card grid are consistent with the existing card system.
 - Colors and tokens: all surfaces and status states use the existing Animalia semantic tokens.
 - Image quality and assets: the correct TOTVS logo remains in use and interface icons come from the existing Phosphor set.
-- Copy and content: group, account, balance, difference and status labels are realistic and internally consistent.
-- Interaction: expanding groups, opening the three-dot menu, choosing Comparação detalhada, creating the tab and returning to Conciliações all work.
+- Copy and content: the Home matches V1's groups, views, balances, daily chart and summary; the V2 detail follows the canonical Lovable content and remains a continuous page rather than V1's task-oriented tabs.
+- Interaction: expanding groups, switching Patrimonial/Por Sistema, opening the three-dot menu, choosing Comparação detalhada, returning to Home, document analysis, expanding validation details, AI analysis and accept/reject all work.
+- Dynamic account context: Banco Conta Movimento renders `1.1.2.001`, R$ 850.000,00 / R$ 849.200,00 / R$ 800,00; Caixa Geral renders `1.1.1.001`, R$ 25.000,00 / R$ 25.000,00 / R$ 0,00. Ledger account labels update with the selected account.
 - Responsiveness: the Home stacks cleanly and has no document-level horizontal overflow (`scrollWidth = innerWidth = 390`).
 
 ## Comparison history
 
-1. Added the Home using the existing Smart X shell and Animalia component language.
-2. Desktop comparison found no actionable visual mismatch in the shared shell, tokens or density.
-3. Mobile verification confirmed the drawer stays off-canvas, KPI cards stack and the page remains within the viewport.
+1. Replaced V2's divergent Home with the canonical V1 Home information architecture and interactions.
+2. Corrected the account-context bug and verified two different account selections end to end.
+3. Compared the continuous V2 detail with the Lovable source on desktop and mobile and preserved the V2-only structure.
+4. Found that Home could carry its previous scroll position into the detail; added an account-change scroll reset and retested from `scrollY = 787.5` to `scrollY = 0`.
+5. Mobile verification at 390 × 844 confirmed stacked summary/content cards and usable navigation.
 
 ## Verification
 
 - Production build passed.
 - Interaction audit passed.
 - Sites packaging tests passed.
-- Browser flow passed in desktop and mobile viewports.
+- Browser flow passed in desktop and mobile viewports, with no console warnings or errors.
 
 ## Follow-up polish
 

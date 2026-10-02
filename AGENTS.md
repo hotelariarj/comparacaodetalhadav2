@@ -10,4 +10,6 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## V2 design decision
 
-The canonical content and interaction source for the main screen is `https://conciliador-contabil.lovable.app/account-drilldown/1110001`. Preserve its account summary, document-validation states, AI reconciliation suggestions, accept/reject decisions, and the two detailed ledgers. Express those flows through the Smart X shell and updated Animalia tokens/components already present in this project. Do not replace the canonical screen with the older aggregated comparison as the default route.
+The Home is intentionally shared with V1: it must keep the same information architecture, Patrimonial/Por Sistema views, four patrimonial groups, expandable account cards, account action menu, daily overview, summary, and route into the selected account. Express it through the Smart X shell and updated Animalia tokens/components already present in this project.
+
+The account-level detailed comparison is intentionally different from V1. Its canonical content and interaction source is `https://conciliador-contabil.lovable.app/account-drilldown/1110001`: preserve the account summary, document-validation states, AI reconciliation suggestions, accept/reject decisions, and the two detailed ledgers in one continuous page. The selected Home account must be passed into this screen so code, name, balances, difference, status, and accounting ledger context never fall back silently to Caixa Geral. Do not copy V1's task-oriented, tabbed detail workspace into V2.
