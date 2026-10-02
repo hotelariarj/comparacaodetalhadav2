@@ -215,9 +215,8 @@ export function App() {
   };
 
   return <AppShell currentNav={currentNav} onNavigate={navigateTo} detailTabOpen={detailTabOpen}>
-    {currentNav === "Home" ? <HomeDashboard onOpenComparison={openAccountComparison} /> : currentNav !== "Comparação Detalhada" ? <ModulePage name={currentNav} onBack={() => navigateTo("Home")} /> : accountDrilldown ? <>
+    {currentNav === "Home" ? <HomeDashboard onOpenComparison={openAccountComparison} onToast={setToast} /> : currentNav !== "Comparação Detalhada" ? <ModulePage name={currentNav} onBack={() => navigateTo("Home")} /> : accountDrilldown ? <>
     <AccountDrilldown onBack={() => setAccountDrilldown(false)} onToast={setToast} versionLabel="V2" />
-    {toast && <div className="toast" role="status"><CheckCircle weight="fill" /><span>{toast}</span><IconButton label="Fechar notificação" onClick={() => setToast("")}><X /></IconButton></div>}
     </> : <>
     <main id="main-content" className="main-content">
       <nav className="breadcrumb" aria-label="Você está em"><button type="button" onClick={() => setCurrentNav("Home")}>Home</button><CaretRight /><button type="button" onClick={() => { setScope("Todas as contas"); setPage(1); }}>Ativo Circulante</button><CaretRight /><span>{scope === "Todas as contas" ? "Todas as contas" : "1.1.2.001 Banco Conta Movimento"}</span></nav>
@@ -267,8 +266,8 @@ export function App() {
     {reviewOpen && <ReviewDialog justification={justification} setJustification={setJustification} inputRef={modalInput} onClose={() => { setReviewOpen(false); setJustification(""); }} onApprove={approveReview} />}
     {linkTarget && <LinkDialog row={linkTarget} onClose={() => setLinkTarget(null)} onConfirm={() => finishLink(linkTarget)} />}
     {suggestionOpen && <SuggestionDialog item={suggestionOpen} onClose={() => { setSuggestionOpen(null); setToast("Sugestão descartada sem alterar a conciliação."); }} onApply={() => { const targetId = suggestionTargetIds[suggestionOpen.id]; if (targetId) setResolvedIds((current) => new Set(current).add(targetId)); setAppliedSuggestionIds((current) => new Set(current).add(suggestionOpen.id)); setSelectedSuggestions((current) => { const next = new Set(current); next.delete(suggestionOpen.id); return next; }); setSuggestionOpen(null); setToast(`${targetId || "Registro"} conciliado pela sugestão da IA.`); }} />}
-    {toast && <div className="toast" role="status"><CheckCircle weight="fill" /><span>{toast}</span><IconButton label="Fechar notificação" onClick={() => setToast("")}><X /></IconButton></div>}
     </>}
+    {toast && <div className="toast" role="status"><CheckCircle weight="fill" /><span>{toast}</span><IconButton label="Fechar notificação" onClick={() => setToast("")}><X /></IconButton></div>}
   </AppShell>;
 }
 
@@ -319,9 +318,11 @@ const reconciliationGroups = [
   },
 ];
 
-function HomeDashboard({ onOpenComparison }) {
+function HomeDashboard({ onOpenComparison, onToast }) {
   const [expandedGroups, setExpandedGroups] = useState(new Set(["assets"]));
   const [accountMenu, setAccountMenu] = useState(null);
+  const [homeDialog, setHomeDialog] = useState(null);
+  const [approvedAccounts, setApprovedAccounts] = useState(new Set());
   const toggleGroup = (id) => setExpandedGroups((current) => {
     const next = new Set(current);
     next.has(id) ? next.delete(id) : next.add(id);
@@ -334,6 +335,16 @@ function HomeDashboard({ onOpenComparison }) {
     document.addEventListener("pointerdown", close);
     return () => document.removeEventListener("pointerdown", close);
   }, [accountMenu]);
+
+  const openHomeDialog = (type, target, scope = "account") => {
+    setAccountMenu(null);
+    setHomeDialog({ type, target, scope });
+  };
+  const approveAccount = (account) => {
+    setApprovedAccounts((current) => new Set(current).add(account.code));
+    setHomeDialog(null);
+    onToast?.(`Análise de ${account.name} aprovada com sucesso.`);
+  };
 
   return <main id="main-content" className="main-content home-dashboard">
     <nav className="breadcrumb" aria-label="Você está em"><span>Home</span></nav>
@@ -359,20 +370,63 @@ function HomeDashboard({ onOpenComparison }) {
             <span className="home-group-difference"><small>Diferença</small><strong>{group.difference}</strong></span>
             <CaretDown className={expanded ? "rotate" : ""} />
           </button>
+          <IconButton className="home-group-export" label={`Exportar dados do grupo ${group.title}`} onClick={() => openHomeDialog("export", group, "group")}><DownloadSimple /></IconButton>
           {expanded && <div className="home-account-grid" id={`accounts-${group.id}`}>
             {group.accounts.map((account) => {
               const menuId = `${group.id}-${account.code}`;
+              const approved = approvedAccounts.has(account.code);
               return <article className="home-account-card" key={account.code}>
-                <header><span><small>{account.code}</small><strong>{account.name}</strong></span><div className="home-account-actions"><IconButton label={`Ações de ${account.name}`} aria-expanded={accountMenu === menuId} onClick={() => setAccountMenu(accountMenu === menuId ? null : menuId)}><DotsThreeVertical weight="bold" /></IconButton>{accountMenu === menuId && <div className="home-account-menu" role="menu"><button type="button" role="menuitem" onClick={() => { setAccountMenu(null); onOpenComparison(account); }}>Comparação detalhada</button></div>}</div></header>
+                <header><span><small>{account.code}</small><strong>{account.name}</strong></span><div className="home-account-actions"><IconButton label={`Ações de ${account.name}`} aria-expanded={accountMenu === menuId} onClick={() => setAccountMenu(accountMenu === menuId ? null : menuId)}><DotsThreeVertical weight="bold" /></IconButton>{accountMenu === menuId && <div className="home-account-menu" role="menu"><button type="button" role="menuitem" onClick={() => { setAccountMenu(null); onOpenComparison(account); }}>Comparação detalhada</button><button type="button" role="menuitem" onClick={() => openHomeDialog("attach", account)}>Anexar documento</button><button type="button" role="menuitem" onClick={() => openHomeDialog("export", account)}>Exportar para auditoria</button><button type="button" role="menuitem" onClick={() => openHomeDialog("approve", account)}>{approved ? "Análise aprovada" : "Aprovar análise"}</button></div>}</div></header>
                 <dl><div><dt>Saldo contábil</dt><dd>{account.balance}</dd></div><div><dt>Diferença</dt><dd className={account.tone === "negative" ? "negative" : ""}>{account.difference}</dd></div></dl>
-                <footer><span className={`home-state ${account.tone}`}>{account.tone === "positive" ? <CheckCircle weight="fill" /> : <WarningCircle weight="fill" />}{account.status}</span><small>Última análise hoje</small></footer>
+                <footer><span className={`home-state ${approved ? "positive" : account.tone}`}>{approved || account.tone === "positive" ? <CheckCircle weight="fill" /> : <WarningCircle weight="fill" />}{approved ? "Análise aprovada" : account.status}</span><small>Última análise hoje</small></footer>
               </article>;
             })}
           </div>}
         </article>;
       })}
     </section>
+    {homeDialog?.type === "attach" && <AttachDocumentDialog account={homeDialog.target} onClose={() => setHomeDialog(null)} onComplete={(file, category) => { setHomeDialog(null); onToast?.(`${file.name} anexado como ${category} em ${homeDialog.target.name}.`); }} />}
+    {homeDialog?.type === "export" && <AuditExportDialog target={homeDialog.target} scope={homeDialog.scope} onClose={() => setHomeDialog(null)} onComplete={(summary) => { setHomeDialog(null); onToast?.(`${summary} preparado para exportação.`); }} />}
+    {homeDialog?.type === "approve" && <ApproveAnalysisDialog account={homeDialog.target} approved={approvedAccounts.has(homeDialog.target.code)} onClose={() => setHomeDialog(null)} onConfirm={() => approveAccount(homeDialog.target)} />}
   </main>;
+}
+
+const documentCategories = ["Comprovante de Transação", "Nota Fiscal", "Recibo", "Contrato", "Extrato Bancário", "Outro Documento"];
+
+function AttachDocumentDialog({ account, onClose, onComplete }) {
+  const [category, setCategory] = useState(documentCategories[0]);
+  const [file, setFile] = useState(null);
+  const input = useRef(null);
+  return <div className="overlay modal-overlay home-flow-overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="home-flow-dialog" role="dialog" aria-modal="true" aria-labelledby="attach-dialog-title"><header><div><small>Anexar documentos</small><h2 id="attach-dialog-title">{account.name}</h2></div><IconButton label="Fechar" onClick={onClose}><X /></IconButton></header><div className="home-flow-body"><label className="home-flow-field">Categoria padrão<select value={category} onChange={(event) => setCategory(event.target.value)}>{documentCategories.map((item) => <option key={item}>{item}</option>)}</select></label><section className={`home-file-drop ${file ? "selected" : ""}`}><FileArrowUp size={36} /><strong>{file ? file.name : "Arraste arquivos aqui ou clique para selecionar"}</strong><span>{file ? `${Math.max(1, Math.round(file.size / 1024))} KB selecionado` : "Formatos aceitos: PDF, DOC, XLS, JPG, PNG, TXT"}</span><button type="button" className="button secondary" onClick={() => input.current?.click()}>{file ? "Trocar arquivo" : "Selecionar arquivos"}</button><input ref={input} className="visually-hidden" type="file" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.txt" onChange={(event) => setFile(event.target.files?.[0] || null)} /></section></div><footer><button type="button" className="button secondary" onClick={onClose}>Cancelar</button><button type="button" className="button primary" disabled={!file} onClick={() => onComplete(file, category)}><Paperclip />Anexar documento</button></footer></section></div>;
+}
+
+const reportTypes = [
+  { id: "complete", title: "Relatório completo da conta", description: "Dados completos incluindo transações, reconciliações e análises", formats: "PDF, Excel", size: "2–5 MB" },
+  { id: "transactions", title: "Apenas transações", description: "Lista detalhada de todas as transações", formats: "CSV, Excel, PDF", size: "500 KB–2 MB" },
+  { id: "reconciliation", title: "Dados de reconciliação", description: "Comparação entre dados contábeis e do sistema", formats: "Excel, PDF", size: "1–3 MB" },
+];
+
+function AuditExportDialog({ target, scope, onClose, onComplete }) {
+  const [step, setStep] = useState("type");
+  const [reportType, setReportType] = useState("complete");
+  const [dateFrom, setDateFrom] = useState("2026-09-02");
+  const [dateTo, setDateTo] = useState("2026-10-02");
+  const [format, setFormat] = useState("PDF");
+  const [included, setIncluded] = useState({ documents: true, analyses: true, divergences: true, audit: false });
+  const selectedReport = reportTypes.find((item) => item.id === reportType);
+  const toggleIncluded = (key) => setIncluded((current) => ({ ...current, [key]: !current[key] }));
+  const title = scope === "group" ? `Grupo ${target.title}` : `${target.name} · ${target.code}`;
+  const includedLabels = [["documents", "Documentos anexados"], ["analyses", "Análises e comentários"], ["divergences", "Apenas divergências"], ["audit", "Trilha de auditoria"]];
+  return <div className="overlay modal-overlay home-flow-overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="home-flow-dialog home-export-dialog" role="dialog" aria-modal="true" aria-labelledby="export-dialog-title"><header><div><small>Exportar para auditoria</small><h2 id="export-dialog-title">{title}</h2></div><IconButton label="Fechar" onClick={onClose}><X /></IconButton></header><nav className="home-flow-tabs" aria-label="Etapas da exportação">{[["type", "Tipo de relatório"], ["period", "Período"], ["options", "Opções"], ["preview", "Visualizar"]].map(([id, label]) => <button type="button" key={id} className={step === id ? "active" : ""} aria-current={step === id ? "step" : undefined} onClick={() => setStep(id)}>{label}</button>)}</nav><div className="home-flow-body">
+    {step === "type" && <section className="export-step"><h3>Selecione o tipo de exportação</h3><div className="report-type-list">{reportTypes.map((item) => <button type="button" key={item.id} className={reportType === item.id ? "selected" : ""} onClick={() => setReportType(item.id)}><span><strong>{item.title}</strong>{reportType === item.id && <em>Selecionado</em>}</span><small>{item.description}</small><span><b>Formatos: {item.formats}</b><b>Tamanho estimado: {item.size}</b></span></button>)}</div></section>}
+    {step === "period" && <section className="export-step"><h3>Selecione o período para exportação</h3><div className="export-period"><label>Data inicial<input type="date" value={dateFrom} onChange={(event) => setDateFrom(event.target.value)} /></label><span>até</span><label>Data final<input type="date" value={dateTo} onChange={(event) => setDateTo(event.target.value)} /></label></div></section>}
+    {step === "options" && <section className="export-step"><h3>Formato de exportação</h3><label className="home-flow-field">Formato<select value={format} onChange={(event) => setFormat(event.target.value)}><option>PDF</option><option>Excel</option></select></label><h3>Dados a incluir</h3><div className="export-checks">{includedLabels.map(([key, label]) => <label key={key}><input type="checkbox" checked={included[key]} onChange={() => toggleIncluded(key)} />{label}</label>)}</div></section>}
+    {step === "preview" && <section className="export-step"><h3>Resumo da exportação</h3><dl className="export-preview"><div><dt>{scope === "group" ? "Grupo" : "Conta"}</dt><dd>{scope === "group" ? target.title : target.name}<small>{target.code}</small></dd></div><div><dt>Tipo de relatório</dt><dd>{selectedReport.title}</dd></div><div><dt>Período</dt><dd>{dateFrom.split("-").reverse().join("/")} – {dateTo.split("-").reverse().join("/")}</dd></div><div><dt>Formato</dt><dd>{format}</dd></div></dl><div className="export-chips">{includedLabels.filter(([key]) => included[key]).map(([, label]) => <span key={label}>{label}</span>)}</div></section>}
+  </div><footer><button type="button" className="button secondary" onClick={onClose}>Cancelar</button><button type="button" className="button primary" onClick={() => onComplete(`${selectedReport.title} de ${title} em ${format}`)}><DownloadSimple />Gerar exportação</button></footer></section></div>;
+}
+
+function ApproveAnalysisDialog({ account, approved, onClose, onConfirm }) {
+  return <div className="overlay modal-overlay home-flow-overlay" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><section className="home-flow-dialog home-approve-dialog" role="dialog" aria-modal="true" aria-labelledby="approve-dialog-title"><header><div><small>Análise da conta</small><h2 id="approve-dialog-title">{account.name}</h2></div><IconButton label="Fechar" onClick={onClose}><X /></IconButton></header><div className="home-flow-body"><div className={`approval-message ${approved ? "approved" : ""}`}>{approved ? <CheckCircle size={34} weight="fill" /> : <WarningCircle size={34} weight="fill" />}<div><strong>{approved ? "Análise já aprovada" : "Aprovar esta análise?"}</strong><p>{approved ? "Esta conta já foi revisada e aprovada nesta sessão." : `Você confirma os saldos, documentos e divergências apresentados para ${account.code}?`}</p></div></div><dl className="approval-summary"><div><dt>Saldo contábil</dt><dd>{account.balance}</dd></div><div><dt>Diferença</dt><dd>{account.difference}</dd></div><div><dt>Status atual</dt><dd>{account.status}</dd></div></dl></div><footer><button type="button" className="button secondary" onClick={onClose}>{approved ? "Fechar" : "Cancelar"}</button>{!approved && <button type="button" className="button primary" onClick={onConfirm}><CheckCircle />Confirmar aprovação</button>}</footer></section></div>;
 }
 
 function ModulePage({ name, onBack }) {
