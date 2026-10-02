@@ -1,0 +1,2397 @@
+{
+  "version": 1,
+  "mappings": [
+    {
+      "accountId": "conta-caixa-geral",
+      "accountCode": "1.1.1.001",
+      "accountName": "Caixa Geral",
+      "systems": [
+        {
+          "systemId": "controle-financeiro",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "rel-caixa-diario"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-banco-movimento",
+      "accountCode": "1.1.2.001",
+      "accountName": "Banco Conta Movimento",
+      "systems": [
+        {
+          "systemId": "controle-financeiro",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "rel-extrato-bancario",
+            "rel-movimento-bancario"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-receber-clientes",
+      "accountCode": "1.1.3.001",
+      "accountName": "Contas a Receber - Clientes",
+      "systems": [
+        {
+          "systemId": "contas-receber",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "rel-titulos-abertos"
+          ]
+        },
+        {
+          "systemId": "pms",
+          "systemName": "PMS",
+          "reportIds": [
+            "rel-hospedagem"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-1110201002",
+      "accountCode": "1110201002",
+      "accountName": "BANCO DO BRASIL C/C 5293-0",
+      "systems": [
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-1120101001",
+      "accountCode": "1120101001",
+      "accountName": "DUPLICATAS A RECEBER COBRANÇA",
+      "systems": [
+        {
+          "systemId": "ALMOXARIFADO",
+          "systemName": "Almoxarifado",
+          "reportIds": [
+            "Livros Fiscais",
+            "Manutenção",
+            "MODULO INEXISTENTE",
+            "Mútuo"
+          ]
+        },
+        {
+          "systemId": "CONTAS_PAGAR",
+          "systemName": "Contas a Pagar",
+          "reportIds": [
+            "Controle Financeiro",
+            "Distribuição de Aluguel",
+            "DocFiscAll",
+            "EFD-Social"
+          ]
+        },
+        {
+          "systemId": "CONTAS_RECEBER",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "Compras 2000",
+            "Condominio",
+            "Contabilidade",
+            "Contas a Pagar"
+          ]
+        },
+        {
+          "systemId": "CONTROLE_FINANCEIRO",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "FrontOffice",
+            "Frontoffice - VHFCaixa",
+            "GAP",
+            "Gerador de Relatórios, Consultas e Gráficos"
+          ]
+        },
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-1120101003",
+      "accountCode": "1120101003",
+      "accountName": "HOSPEDES NA CASA",
+      "systems": [
+        {
+          "systemId": "CONTAS_RECEBER",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "Compras 2000",
+            "Condominio",
+            "Contabilidade",
+            "Contas a Pagar"
+          ]
+        },
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-1120301002",
+      "accountCode": "1120301002",
+      "accountName": "VISA",
+      "systems": [
+        {
+          "systemId": "ALMOXARIFADO",
+          "systemName": "Almoxarifado",
+          "reportIds": [
+            "Livros Fiscais",
+            "Manutenção",
+            "MODULO INEXISTENTE",
+            "Mútuo"
+          ]
+        },
+        {
+          "systemId": "CONTAS_PAGAR",
+          "systemName": "Contas a Pagar",
+          "reportIds": [
+            "Controle Financeiro",
+            "Distribuição de Aluguel",
+            "DocFiscAll",
+            "EFD-Social"
+          ]
+        },
+        {
+          "systemId": "CONTAS_RECEBER",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "Compras 2000",
+            "Condominio",
+            "Contabilidade",
+            "Contas a Pagar"
+          ]
+        },
+        {
+          "systemId": "CONTROLE_FINANCEIRO",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "FrontOffice",
+            "Frontoffice - VHFCaixa",
+            "GAP",
+            "Gerador de Relatórios, Consultas e Gráficos"
+          ]
+        },
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-1130101002",
+      "accountCode": "1130101002",
+      "accountName": "BEBIDAS",
+      "systems": [
+        {
+          "systemId": "ALMOXARIFADO",
+          "systemName": "Almoxarifado",
+          "reportIds": [
+            "Livros Fiscais",
+            "Manutenção",
+            "MODULO INEXISTENTE",
+            "Mútuo"
+          ]
+        },
+        {
+          "systemId": "CONTAS_PAGAR",
+          "systemName": "Contas a Pagar",
+          "reportIds": [
+            "Controle Financeiro",
+            "Distribuição de Aluguel",
+            "DocFiscAll",
+            "EFD-Social"
+          ]
+        },
+        {
+          "systemId": "CONTAS_RECEBER",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "Compras 2000",
+            "Condominio",
+            "Contabilidade",
+            "Contas a Pagar"
+          ]
+        },
+        {
+          "systemId": "CONTROLE_FINANCEIRO",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "FrontOffice",
+            "Frontoffice - VHFCaixa",
+            "GAP",
+            "Gerador de Relatórios, Consultas e Gráficos"
+          ]
+        },
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-2120101001",
+      "accountCode": "2120101001",
+      "accountName": "FORNECEDORES DIVERSOS",
+      "systems": [
+        {
+          "systemId": "ALMOXARIFADO",
+          "systemName": "Almoxarifado",
+          "reportIds": [
+            "Livros Fiscais",
+            "Manutenção",
+            "MODULO INEXISTENTE",
+            "Mútuo"
+          ]
+        },
+        {
+          "systemId": "CONTAS_PAGAR",
+          "systemName": "Contas a Pagar",
+          "reportIds": [
+            "Controle Financeiro",
+            "Distribuição de Aluguel",
+            "DocFiscAll",
+            "EFD-Social"
+          ]
+        },
+        {
+          "systemId": "CONTAS_RECEBER",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "Compras 2000",
+            "Condominio",
+            "Contabilidade",
+            "Contas a Pagar"
+          ]
+        },
+        {
+          "systemId": "CONTROLE_FINANCEIRO",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "FrontOffice",
+            "Frontoffice - VHFCaixa",
+            "GAP",
+            "Gerador de Relatórios, Consultas e Gráficos"
+          ]
+        },
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    },
+    {
+      "accountId": "conta-2180102001",
+      "accountCode": "2180102001",
+      "accountName": "ADIANTAMENTO DE CLIENTES",
+      "systems": [
+        {
+          "systemId": "ALMOXARIFADO",
+          "systemName": "Almoxarifado",
+          "reportIds": [
+            "Livros Fiscais",
+            "Manutenção",
+            "MODULO INEXISTENTE",
+            "Mútuo"
+          ]
+        },
+        {
+          "systemId": "CONTAS_PAGAR",
+          "systemName": "Contas a Pagar",
+          "reportIds": [
+            "Controle Financeiro",
+            "Distribuição de Aluguel",
+            "DocFiscAll",
+            "EFD-Social"
+          ]
+        },
+        {
+          "systemId": "CONTAS_RECEBER",
+          "systemName": "Contas a Receber",
+          "reportIds": [
+            "Compras 2000",
+            "Condominio",
+            "Contabilidade",
+            "Contas a Pagar"
+          ]
+        },
+        {
+          "systemId": "CONTROLE_FINANCEIRO",
+          "systemName": "Controle Financeiro",
+          "reportIds": [
+            "FrontOffice",
+            "Frontoffice - VHFCaixa",
+            "GAP",
+            "Gerador de Relatórios, Consultas e Gráficos"
+          ]
+        },
+        {
+          "systemId": "PMS",
+          "systemName": "PMS",
+          "reportIds": [
+            "Administração de Shoppings",
+            "Almoxarifado",
+            "Aplicação Servidora do EFD-Social",
+            "Contas a Receber",
+            "Evento"
+          ]
+        }
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "accountId": "conta-caixa-geral",
+      "accountCode": "1.1.1.001",
+      "accountName": "Caixa Geral",
+      "systemOpenUrl": "https://sistema-financeiro.exemplo/relatorios/caixa",
+      "summary": {
+        "saldoContabil": 45000.0,
+        "valorSistema": 41950.0,
+        "diferenca": 3050.0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [
+        {
+          "id": "att-001",
+          "fileName": "extrato_bancario_agosto.pdf",
+          "sizeLabel": "1.95 MB",
+          "uploadedAt": "21/08/2024",
+          "uploadedBy": "Joao Silva"
+        }
+      ],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-doc-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-doc-001",
+            "date": "14/08/2024",
+            "documentId": "DOC-001",
+            "description": "Deposito Cliente ABC Ltda",
+            "accountCode": "1.1.02.001",
+            "value": 25000.0
+          },
+          "system": {
+            "id": "sys-doc-001",
+            "date": "14/08/2024",
+            "documentId": "DOC-001",
+            "description": "Deposito Cliente ABC Ltda",
+            "sourceCode": "SYS-FIN",
+            "value": 25000.0
+          }
+        },
+        {
+          "id": "row-doc-002",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-doc-002",
+            "date": "15/08/2024",
+            "documentId": "DOC-002",
+            "description": "Pagamento Fornecedor XYZ",
+            "accountCode": "1.1.02.001",
+            "value": -12000.0
+          },
+          "system": {
+            "id": "sys-doc-002",
+            "date": "15/08/2024",
+            "documentId": "DOC-002",
+            "description": "Pagamento Fornecedor XYZ",
+            "sourceCode": "SYS-FIN",
+            "value": -10500.0
+          }
+        },
+        {
+          "id": "row-doc-003",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-doc-003",
+            "date": "16/08/2024",
+            "documentId": "DOC-003",
+            "description": "Transferencia TED Recebida",
+            "accountCode": "1.1.02.001",
+            "value": 8500.0
+          },
+          "system": {
+            "id": "sys-doc-003",
+            "date": "16/08/2024",
+            "documentId": "DOC-003",
+            "description": "TED Recebida Cliente",
+            "sourceCode": "SYS-FIN",
+            "value": 8500.0
+          }
+        },
+        {
+          "id": "row-doc-004",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-doc-004",
+            "date": "17/08/2024",
+            "documentId": "DOC-004",
+            "description": "Pagamento Taxa Bancaria",
+            "accountCode": "1.1.02.001",
+            "value": -150.0
+          },
+          "system": {
+            "id": "sys-doc-004",
+            "date": "17/08/2024",
+            "documentId": "DOC-004",
+            "description": "Taxa Bancaria",
+            "sourceCode": "SYS-FIN",
+            "value": -150.0
+          }
+        },
+        {
+          "id": "row-doc-005",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-doc-005",
+            "date": "18/08/2024",
+            "documentId": "DOC-005",
+            "description": "Recebimento Servicos",
+            "accountCode": "1.1.02.001",
+            "value": 16000.0
+          },
+          "system": {
+            "id": "sys-doc-005",
+            "date": "19/08/2024",
+            "documentId": "DOC-005",
+            "description": "Recebimento Servicos",
+            "sourceCode": "SYS-FIN",
+            "value": 16000.0
+          }
+        },
+        {
+          "id": "row-doc-006",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-doc-006",
+            "date": "19/08/2024",
+            "documentId": "DOC-006",
+            "description": "Ajuste Conciliacao",
+            "accountCode": "1.1.02.001",
+            "value": 0.0
+          },
+          "system": {
+            "id": "sys-doc-006",
+            "date": "19/08/2024",
+            "documentId": "DOC-006",
+            "description": "Ajuste Conciliacao",
+            "sourceCode": "SYS-FIN",
+            "value": 0.0
+          }
+        },
+        {
+          "id": "row-doc-007",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-doc-007",
+            "date": "19/08/2024",
+            "documentId": "DOC-007",
+            "description": "Credito Juros Aplicacao",
+            "accountCode": "1.1.02.001",
+            "value": 1200.0
+          },
+          "system": {
+            "id": "sys-doc-007",
+            "date": "19/08/2024",
+            "documentId": "DOC-007",
+            "description": "Credito Juros Aplicacao",
+            "sourceCode": "SYS-FIN",
+            "value": 1200.0
+          }
+        },
+        {
+          "id": "row-doc-008",
+          "status": "accountingOnly",
+          "accounting": {
+            "id": "acc-doc-008",
+            "date": "20/08/2024",
+            "documentId": "DOC-008",
+            "description": "Debito Nao Identificado",
+            "accountCode": "1.1.02.001",
+            "value": -5500.0
+          },
+          "system": {
+            "id": "",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "sourceCode": "",
+            "value": 0.0
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-caixa-geral",
+        "accountCode": "1.1.1.001",
+        "accountName": "Caixa Geral",
+        "systems": [
+          {
+            "systemId": "controle-financeiro",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "rel-caixa-diario"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-banco-movimento",
+      "accountCode": "1.1.2.001",
+      "accountName": "Banco Conta Movimento",
+      "systemOpenUrl": "https://sistema-financeiro.exemplo/relatorios/extrato",
+      "summary": {
+        "saldoContabil": 850000.0,
+        "valorSistema": 849200.0,
+        "diferenca": 800.0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-bnc-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-bnc-001",
+            "date": "10/08/2024",
+            "documentId": "DOC-101",
+            "description": "TED Recebida",
+            "accountCode": "1.1.2.001",
+            "value": 420000.0
+          },
+          "system": {
+            "id": "sys-bnc-001",
+            "date": "10/08/2024",
+            "documentId": "DOC-101",
+            "description": "TED Recebida",
+            "accountCode": "1.1.2.001",
+            "value": 420000.0
+          }
+        },
+        {
+          "id": "row-bnc-002",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-bnc-002",
+            "date": "12/08/2024",
+            "documentId": "DOC-102",
+            "description": "Pagamento Folha",
+            "accountCode": "1.1.2.001",
+            "value": -180000.0
+          },
+          "system": {
+            "id": "sys-bnc-002",
+            "date": "12/08/2024",
+            "documentId": "DOC-102",
+            "description": "Pagamento Folha",
+            "accountCode": "1.1.2.001",
+            "value": -180800.0
+          }
+        },
+        {
+          "id": "row-bnc-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-bnc-003",
+            "date": "19/08/2024",
+            "documentId": "DOC-103",
+            "description": "Aplicacao Automatica",
+            "accountCode": "1.1.2.001",
+            "value": 610000.0
+          },
+          "system": {
+            "id": "sys-bnc-003",
+            "date": "19/08/2024",
+            "documentId": "DOC-103",
+            "description": "Aplicacao Automatica",
+            "accountCode": "1.1.2.001",
+            "value": 610000.0
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-banco-movimento",
+        "accountCode": "1.1.2.001",
+        "accountName": "Banco Conta Movimento",
+        "systems": [
+          {
+            "systemId": "controle-financeiro",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "rel-extrato-bancario",
+              "rel-movimento-bancario"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-receber-clientes",
+      "accountCode": "1.1.3.001",
+      "accountName": "Contas a Receber - Clientes",
+      "systemOpenUrl": "https://sistema-receber.exemplo/titulos",
+      "summary": {
+        "saldoContabil": 375000.0,
+        "valorSistema": 374300.0,
+        "diferenca": 700.0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-rcv-001",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-rcv-001",
+            "date": "05/08/2024",
+            "documentId": "DOC-201",
+            "description": "Fatura Cliente Beta",
+            "accountCode": "1.1.3.001",
+            "value": 95000.0
+          },
+          "system": {
+            "id": "sys-rcv-001",
+            "date": "05/08/2024",
+            "documentId": "DOC-201",
+            "description": "Fatura Cliente Beta",
+            "accountCode": "1.1.3.001",
+            "value": 94300.0
+          }
+        },
+        {
+          "id": "row-rcv-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-rcv-002",
+            "date": "14/08/2024",
+            "documentId": "DOC-202",
+            "description": "Recebimento Parcela 1",
+            "accountCode": "1.1.3.001",
+            "value": 280000.0
+          },
+          "system": {
+            "id": "sys-rcv-002",
+            "date": "14/08/2024",
+            "documentId": "DOC-202",
+            "description": "Recebimento Parcela 1",
+            "accountCode": "1.1.3.001",
+            "value": 280000.0
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-receber-clientes",
+        "accountCode": "1.1.3.001",
+        "accountName": "Contas a Receber - Clientes",
+        "systems": [
+          {
+            "systemId": "contas-receber",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "rel-titulos-abertos"
+            ]
+          },
+          {
+            "systemId": "pms",
+            "systemName": "PMS",
+            "reportIds": [
+              "rel-hospedagem"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-1110201002",
+      "accountCode": "1110201002",
+      "accountName": "BANCO DO BRASIL C/C 5293-0",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 139349.87,
+        "valorSistema": 139349.87,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-1110201002-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-001",
+            "date": "01/07/2026",
+            "documentId": "LC260701031",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "1110201002",
+            "value": 9900
+          },
+          "system": {
+            "id": "sys-1110201002-001",
+            "date": "01/07/2026",
+            "documentId": "LC260701031",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": 9900
+          }
+        },
+        {
+          "id": "row-1110201002-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-002",
+            "date": "08/07/2026",
+            "documentId": "LC260708013",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1110201002",
+            "value": 2799.6
+          },
+          "system": {
+            "id": "sys-1110201002-002",
+            "date": "08/07/2026",
+            "documentId": "LC260708013",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": 2799.6
+          }
+        },
+        {
+          "id": "row-1110201002-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-003",
+            "date": "20/07/2026",
+            "documentId": "LC260720032",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "1110201002",
+            "value": 640.25
+          },
+          "system": {
+            "id": "sys-1110201002-003",
+            "date": "20/07/2026",
+            "documentId": "LC260720032",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": 640.25
+          }
+        },
+        {
+          "id": "row-1110201002-004",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-004",
+            "date": "23/07/2026",
+            "documentId": "LC260723014",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1110201002",
+            "value": 100.01
+          },
+          "system": {
+            "id": "sys-1110201002-004",
+            "date": "23/07/2026",
+            "documentId": "LC260723014",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": 100.01
+          }
+        },
+        {
+          "id": "row-1110201002-005",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-005",
+            "date": "09/08/2026",
+            "documentId": "LC260809033",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "1110201002",
+            "value": 1745.55
+          },
+          "system": {
+            "id": "sys-1110201002-005",
+            "date": "09/08/2026",
+            "documentId": "LC260809033",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": 1745.55
+          }
+        },
+        {
+          "id": "row-1110201002-006",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-1110201002-006",
+            "date": "10/08/2026",
+            "documentId": "45432",
+            "description": "RECEBIMENTO EM PIX",
+            "accountCode": "1110201002",
+            "value": 3390.64
+          },
+          "system": {
+            "id": "sys-1110201002-006",
+            "date": "10/08/2026",
+            "documentId": "45432",
+            "description": "RECEBIMENTO EM PIX",
+            "sourceCode": "Contabilidade",
+            "value": 3390.64
+          }
+        },
+        {
+          "id": "row-1110201002-007",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-007",
+            "date": "14/08/2026",
+            "documentId": "LC260814015",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1110201002",
+            "value": 5440.33
+          },
+          "system": {
+            "id": "sys-1110201002-007",
+            "date": "14/08/2026",
+            "documentId": "LC260814015",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": 5440.33
+          }
+        },
+        {
+          "id": "row-1110201002-008",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-008",
+            "date": "20/08/2026",
+            "documentId": "1/2",
+            "description": "ERRO PROPOSITAL DOCUMENTO VAZIO",
+            "accountCode": "1110201002",
+            "value": 2100
+          },
+          "system": {
+            "id": "sys-1110201002-008",
+            "date": "20/08/2026",
+            "documentId": "1/2",
+            "description": "ERRO PROPOSITAL DOCUMENTO VAZIO",
+            "sourceCode": "Contabilidade",
+            "value": 2100
+          }
+        },
+        {
+          "id": "row-1110201002-009",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-1110201002-009",
+            "date": "24/08/2026",
+            "documentId": "525212",
+            "description": "PAGO CHEQUE NR.",
+            "accountCode": "1110201002",
+            "value": -900
+          },
+          "system": {
+            "id": "sys-1110201002-009",
+            "date": "24/08/2026",
+            "documentId": "525212",
+            "description": "PAGO CHEQUE NR.",
+            "sourceCode": "Contabilidade",
+            "value": -900
+          }
+        },
+        {
+          "id": "row-1110201002-010",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-010",
+            "date": "04/09/2026",
+            "documentId": "LC260904016",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1110201002",
+            "value": 670
+          },
+          "system": {
+            "id": "sys-1110201002-010",
+            "date": "04/09/2026",
+            "documentId": "LC260904016",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": 670
+          }
+        },
+        {
+          "id": "row-1110201002-011",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1110201002-011",
+            "date": "16/09/2026",
+            "documentId": "LC260916034",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "1110201002",
+            "value": 299.99
+          },
+          "system": {
+            "id": "sys-1110201002-011",
+            "date": "16/09/2026",
+            "documentId": "LC260916034",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": 299.99
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-1110201002",
+        "accountCode": "1110201002",
+        "accountName": "BANCO DO BRASIL C/C 5293-0",
+        "systems": [
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-1120101001",
+      "accountCode": "1120101001",
+      "accountName": "DUPLICATAS A RECEBER COBRANÇA",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 48695.38,
+        "valorSistema": 48695.38,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-1120101001-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101001-001",
+            "date": "11/07/2026",
+            "documentId": "LC260711091",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101001",
+            "value": 999.9
+          },
+          "system": {
+            "id": "sys-1120101001-001",
+            "date": "11/07/2026",
+            "documentId": "LC260711091",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": 999.9
+          }
+        },
+        {
+          "id": "row-1120101001-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101001-002",
+            "date": "01/08/2026",
+            "documentId": "0508/FT",
+            "description": "LANC. DOC. 0508/FT A  L HOTEIS TURISMOE / EVENTOS LTDA VENCIMENTO:",
+            "accountCode": "1120101001",
+            "value": 3333.33
+          },
+          "system": {
+            "id": "sys-1120101001-002",
+            "date": "01/08/2026",
+            "documentId": "0508/FT",
+            "description": "LANC. DOC. 0508/FT A  L HOTEIS TURISMOE / EVENTOS LTDA VENCIMENTO:",
+            "sourceCode": "Contas a Receber",
+            "value": 3333.33
+          }
+        },
+        {
+          "id": "row-1120101001-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101001-003",
+            "date": "02/08/2026",
+            "documentId": "LC260802092",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101001",
+            "value": 580.45
+          },
+          "system": {
+            "id": "sys-1120101001-003",
+            "date": "02/08/2026",
+            "documentId": "LC260802092",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": 580.45
+          }
+        },
+        {
+          "id": "row-1120101001-004",
+          "status": "accountingOnly",
+          "accounting": {
+            "id": "acc-1120101001-004",
+            "date": "05/08/2026",
+            "documentId": "0508/FT",
+            "description": "LANC. DOC. 0508/FT A  L HOTEIS TURISMOE / EVENTOS LTDA VENCIMENTO:",
+            "accountCode": "1120101001",
+            "value": 1333.33
+          },
+          "system": {
+            "id": "sys-1120101001-004",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "sourceCode": "",
+            "value": 0
+          }
+        },
+        {
+          "id": "row-1120101001-005",
+          "status": "accountingOnly",
+          "accounting": {
+            "id": "acc-1120101001-005",
+            "date": "05/08/2026",
+            "documentId": "0508/FT",
+            "description": "LANC. DOC. 0508/FT A  L HOTEIS TURISMOE / EVENTOS LTDA VENCIMENTO:",
+            "accountCode": "1120101001",
+            "value": 1333.33
+          },
+          "system": {
+            "id": "sys-1120101001-005",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "sourceCode": "",
+            "value": 0
+          }
+        },
+        {
+          "id": "row-1120101001-006",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101001-006",
+            "date": "07/08/2026",
+            "documentId": "0708/PCT",
+            "description": "LANC. DOC. 0708/PCT BABUCH / PRESENTESLTDA VENCIMENTO: 22/08/2026",
+            "accountCode": "1120101001",
+            "value": 5000
+          },
+          "system": {
+            "id": "sys-1120101001-006",
+            "date": "07/08/2026",
+            "documentId": "0708/PCT",
+            "description": "LANC. DOC. 0708/PCT BABUCH / PRESENTESLTDA VENCIMENTO: 22/08/2026",
+            "sourceCode": "Contas a Receber",
+            "value": 5000
+          }
+        },
+        {
+          "id": "row-1120101001-007",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101001-007",
+            "date": "22/08/2026",
+            "documentId": "LC260822093",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101001",
+            "value": 3700
+          },
+          "system": {
+            "id": "sys-1120101001-007",
+            "date": "22/08/2026",
+            "documentId": "LC260822093",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": 3700
+          }
+        },
+        {
+          "id": "row-1120101001-008",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-1120101001-008",
+            "date": "24/08/2026",
+            "documentId": "525212",
+            "description": "PAGO CHEQUE NR.",
+            "accountCode": "1120101001",
+            "value": -800
+          },
+          "system": {
+            "id": "sys-1120101001-008",
+            "date": "24/08/2026",
+            "documentId": "525212",
+            "description": "PAGO CHEQUE NR.",
+            "sourceCode": "Contabilidade",
+            "value": -800
+          }
+        },
+        {
+          "id": "row-1120101001-009",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101001-009",
+            "date": "08/09/2026",
+            "documentId": "LC260908094",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101001",
+            "value": 1212.12
+          },
+          "system": {
+            "id": "sys-1120101001-009",
+            "date": "08/09/2026",
+            "documentId": "LC260908094",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": 1212.12
+          }
+        },
+        {
+          "id": "row-1120101001-010",
+          "status": "systemOnly",
+          "accounting": {
+            "id": "acc-1120101001-010",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "accountCode": "1120101001",
+            "value": 0
+          },
+          "system": {
+            "id": "sys-1120101001-010",
+            "date": "05/08/2026",
+            "documentId": "0108DI",
+            "description": "Docto Efet. - Doc 0108DI",
+            "sourceCode": "Contas a Receber",
+            "value": 9999.99
+          }
+        },
+        {
+          "id": "row-1120101001-011",
+          "status": "systemOnly",
+          "accounting": {
+            "id": "acc-1120101001-011",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "accountCode": "1120101001",
+            "value": 0
+          },
+          "system": {
+            "id": "sys-1120101001-011",
+            "date": "15/08/2026",
+            "documentId": "15080",
+            "description": "Docto Efet. - Evento Totvs Hotelaria - Hackaton",
+            "sourceCode": "Contas a Receber",
+            "value": 3500
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-1120101001",
+        "accountCode": "1120101001",
+        "accountName": "DUPLICATAS A RECEBER COBRANÇA",
+        "systems": [
+          {
+            "systemId": "ALMOXARIFADO",
+            "systemName": "Almoxarifado",
+            "reportIds": [
+              "Livros Fiscais",
+              "Manutenção",
+              "MODULO INEXISTENTE",
+              "Mútuo"
+            ]
+          },
+          {
+            "systemId": "CONTAS_PAGAR",
+            "systemName": "Contas a Pagar",
+            "reportIds": [
+              "Controle Financeiro",
+              "Distribuição de Aluguel",
+              "DocFiscAll",
+              "EFD-Social"
+            ]
+          },
+          {
+            "systemId": "CONTAS_RECEBER",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "Compras 2000",
+              "Condominio",
+              "Contabilidade",
+              "Contas a Pagar"
+            ]
+          },
+          {
+            "systemId": "CONTROLE_FINANCEIRO",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "FrontOffice",
+              "Frontoffice - VHFCaixa",
+              "GAP",
+              "Gerador de Relatórios, Consultas e Gráficos"
+            ]
+          },
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-1120101003",
+      "accountCode": "1120101003",
+      "accountName": "HOSPEDES NA CASA",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 40028.72,
+        "valorSistema": 40028.72,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-1120101003-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101003-001",
+            "date": "11/07/2026",
+            "documentId": "LC260711091",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101003",
+            "value": -999.9
+          },
+          "system": {
+            "id": "sys-1120101003-001",
+            "date": "11/07/2026",
+            "documentId": "LC260711091",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": -999.9
+          }
+        },
+        {
+          "id": "row-1120101003-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101003-002",
+            "date": "02/08/2026",
+            "documentId": "LC260802092",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101003",
+            "value": -580.45
+          },
+          "system": {
+            "id": "sys-1120101003-002",
+            "date": "02/08/2026",
+            "documentId": "LC260802092",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": -580.45
+          }
+        },
+        {
+          "id": "row-1120101003-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101003-003",
+            "date": "22/08/2026",
+            "documentId": "LC260822093",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101003",
+            "value": -3700
+          },
+          "system": {
+            "id": "sys-1120101003-003",
+            "date": "22/08/2026",
+            "documentId": "LC260822093",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": -3700
+          }
+        },
+        {
+          "id": "row-1120101003-004",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120101003-004",
+            "date": "08/09/2026",
+            "documentId": "LC260908094",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "accountCode": "1120101003",
+            "value": -1212.12
+          },
+          "system": {
+            "id": "sys-1120101003-004",
+            "date": "08/09/2026",
+            "documentId": "LC260908094",
+            "description": "COBRANCA DUPLICATAS RECEBER",
+            "sourceCode": "Contabilidade",
+            "value": -1212.12
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-1120101003",
+        "accountCode": "1120101003",
+        "accountName": "HOSPEDES NA CASA",
+        "systems": [
+          {
+            "systemId": "CONTAS_RECEBER",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "Compras 2000",
+              "Condominio",
+              "Contabilidade",
+              "Contas a Pagar"
+            ]
+          },
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-1120301002",
+      "accountCode": "1120301002",
+      "accountName": "VISA",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 60268.98,
+        "valorSistema": 60268.98,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-1120301002-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120301002-001",
+            "date": "08/07/2026",
+            "documentId": "LC260708013",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1120301002",
+            "value": -2799.6
+          },
+          "system": {
+            "id": "sys-1120301002-001",
+            "date": "08/07/2026",
+            "documentId": "LC260708013",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": -2799.6
+          }
+        },
+        {
+          "id": "row-1120301002-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120301002-002",
+            "date": "23/07/2026",
+            "documentId": "LC260723014",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1120301002",
+            "value": -100.01
+          },
+          "system": {
+            "id": "sys-1120301002-002",
+            "date": "23/07/2026",
+            "documentId": "LC260723014",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": -100.01
+          }
+        },
+        {
+          "id": "row-1120301002-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120301002-003",
+            "date": "14/08/2026",
+            "documentId": "LC260814015",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1120301002",
+            "value": -5440.33
+          },
+          "system": {
+            "id": "sys-1120301002-003",
+            "date": "14/08/2026",
+            "documentId": "LC260814015",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": -5440.33
+          }
+        },
+        {
+          "id": "row-1120301002-004",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1120301002-004",
+            "date": "04/09/2026",
+            "documentId": "LC260904016",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "accountCode": "1120301002",
+            "value": -670
+          },
+          "system": {
+            "id": "sys-1120301002-004",
+            "date": "04/09/2026",
+            "documentId": "LC260904016",
+            "description": "BAIXA CARTAO VISA HOSPEDAGEM",
+            "sourceCode": "Contabilidade",
+            "value": -670
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-1120301002",
+        "accountCode": "1120301002",
+        "accountName": "VISA",
+        "systems": [
+          {
+            "systemId": "ALMOXARIFADO",
+            "systemName": "Almoxarifado",
+            "reportIds": [
+              "Livros Fiscais",
+              "Manutenção",
+              "MODULO INEXISTENTE",
+              "Mútuo"
+            ]
+          },
+          {
+            "systemId": "CONTAS_PAGAR",
+            "systemName": "Contas a Pagar",
+            "reportIds": [
+              "Controle Financeiro",
+              "Distribuição de Aluguel",
+              "DocFiscAll",
+              "EFD-Social"
+            ]
+          },
+          {
+            "systemId": "CONTAS_RECEBER",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "Compras 2000",
+              "Condominio",
+              "Contabilidade",
+              "Contas a Pagar"
+            ]
+          },
+          {
+            "systemId": "CONTROLE_FINANCEIRO",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "FrontOffice",
+              "Frontoffice - VHFCaixa",
+              "GAP",
+              "Gerador de Relatórios, Consultas e Gráficos"
+            ]
+          },
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-1130101002",
+      "accountCode": "1130101002",
+      "accountName": "BEBIDAS",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 24332.09,
+        "valorSistema": 24332.09,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-1130101002-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1130101002-001",
+            "date": "05/07/2026",
+            "documentId": "LC260705050",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "accountCode": "1130101002",
+            "value": -320.25
+          },
+          "system": {
+            "id": "sys-1130101002-001",
+            "date": "05/07/2026",
+            "documentId": "LC260705050",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "sourceCode": "Contabilidade",
+            "value": -320.25
+          }
+        },
+        {
+          "id": "row-1130101002-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1130101002-002",
+            "date": "28/07/2026",
+            "documentId": "LC260728051",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "accountCode": "1130101002",
+            "value": -1450.45
+          },
+          "system": {
+            "id": "sys-1130101002-002",
+            "date": "28/07/2026",
+            "documentId": "LC260728051",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "sourceCode": "Contabilidade",
+            "value": -1450.45
+          }
+        },
+        {
+          "id": "row-1130101002-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1130101002-003",
+            "date": "18/08/2026",
+            "documentId": "LC260818052",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "accountCode": "1130101002",
+            "value": -77.7
+          },
+          "system": {
+            "id": "sys-1130101002-003",
+            "date": "18/08/2026",
+            "documentId": "LC260818052",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "sourceCode": "Contabilidade",
+            "value": -77.7
+          }
+        },
+        {
+          "id": "row-1130101002-004",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-1130101002-004",
+            "date": "02/09/2026",
+            "documentId": "LC260902053",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "accountCode": "1130101002",
+            "value": -600.6
+          },
+          "system": {
+            "id": "sys-1130101002-004",
+            "date": "02/09/2026",
+            "documentId": "LC260902053",
+            "description": "BAIXA ESTOQUE BEBIDAS",
+            "sourceCode": "Contabilidade",
+            "value": -600.6
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-1130101002",
+        "accountCode": "1130101002",
+        "accountName": "BEBIDAS",
+        "systems": [
+          {
+            "systemId": "ALMOXARIFADO",
+            "systemName": "Almoxarifado",
+            "reportIds": [
+              "Livros Fiscais",
+              "Manutenção",
+              "MODULO INEXISTENTE",
+              "Mútuo"
+            ]
+          },
+          {
+            "systemId": "CONTAS_PAGAR",
+            "systemName": "Contas a Pagar",
+            "reportIds": [
+              "Controle Financeiro",
+              "Distribuição de Aluguel",
+              "DocFiscAll",
+              "EFD-Social"
+            ]
+          },
+          {
+            "systemId": "CONTAS_RECEBER",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "Compras 2000",
+              "Condominio",
+              "Contabilidade",
+              "Contas a Pagar"
+            ]
+          },
+          {
+            "systemId": "CONTROLE_FINANCEIRO",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "FrontOffice",
+              "Frontoffice - VHFCaixa",
+              "GAP",
+              "Gerador de Relatórios, Consultas e Gráficos"
+            ]
+          },
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-2120101001",
+      "accountCode": "2120101001",
+      "accountName": "FORNECEDORES DIVERSOS",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 102141.65,
+        "valorSistema": 102141.65,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-2120101001-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-001",
+            "date": "06/07/2026",
+            "documentId": "12341",
+            "description": "PAGO RECIBO",
+            "accountCode": "2120101001",
+            "value": -979.43
+          },
+          "system": {
+            "id": "sys-2120101001-001",
+            "date": "06/07/2026",
+            "documentId": "12341",
+            "description": "PAGO RECIBO",
+            "sourceCode": "Contabilidade",
+            "value": -979.43
+          }
+        },
+        {
+          "id": "row-2120101001-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-002",
+            "date": "15/07/2026",
+            "documentId": "LC260715071",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "accountCode": "2120101001",
+            "value": -1999.99
+          },
+          "system": {
+            "id": "sys-2120101001-002",
+            "date": "15/07/2026",
+            "documentId": "LC260715071",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "sourceCode": "Contabilidade",
+            "value": -1999.99
+          }
+        },
+        {
+          "id": "row-2120101001-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-003",
+            "date": "04/08/2026",
+            "documentId": "LC260804072",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "accountCode": "2120101001",
+            "value": -350.75
+          },
+          "system": {
+            "id": "sys-2120101001-003",
+            "date": "04/08/2026",
+            "documentId": "LC260804072",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "sourceCode": "Contabilidade",
+            "value": -350.75
+          }
+        },
+        {
+          "id": "row-2120101001-004",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-004",
+            "date": "13/08/2026",
+            "documentId": "1/REC",
+            "description": "LANC. DOC. 1/REC NESTLE BRASIL / LTDAVENCIMENTO: 18/08/2026 COM DESCONTO",
+            "accountCode": "2120101001",
+            "value": -500
+          },
+          "system": {
+            "id": "sys-2120101001-004",
+            "date": "13/08/2026",
+            "documentId": "1/REC",
+            "description": "LANC. DOC. 1/REC NESTLE BRASIL / LTDAVENCIMENTO: 18/08/2026 COM DESCONTO",
+            "sourceCode": "Contas a Pagar",
+            "value": -500
+          }
+        },
+        {
+          "id": "row-2120101001-005",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-005",
+            "date": "13/08/2026",
+            "documentId": "156362",
+            "description": "DEBITO EM CONTA Nº 156362 REF. / PAGAMENTO DOC. 1 REC NESTLE BRASIL LTDA",
+            "accountCode": "2120101001",
+            "value": 250
+          },
+          "system": {
+            "id": "sys-2120101001-005",
+            "date": "13/08/2026",
+            "documentId": "156362",
+            "description": "DEBITO EM CONTA Nº 156362 REF. / PAGAMENTO DOC. 1 REC NESTLE BRASIL LTDA",
+            "sourceCode": "Contas a Pagar",
+            "value": 250
+          }
+        },
+        {
+          "id": "row-2120101001-006",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-006",
+            "date": "13/08/2026",
+            "documentId": "156363",
+            "description": "DEBITO EM CONTA Nº 156363 REF. / RECEBIMENTO DOC. 2 P001 NESTLE BRASIL",
+            "accountCode": "2120101001",
+            "value": 100
+          },
+          "system": {
+            "id": "sys-2120101001-006",
+            "date": "13/08/2026",
+            "documentId": "156363",
+            "description": "DEBITO EM CONTA Nº 156363 REF. / RECEBIMENTO DOC. 2 P001 NESTLE BRASIL",
+            "sourceCode": "Contas a Pagar",
+            "value": 100
+          }
+        },
+        {
+          "id": "row-2120101001-007",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-007",
+            "date": "13/08/2026",
+            "documentId": "156364",
+            "description": "DEBITO EM CONTA Nº 156364 REF. / RECEBIMENTO DOC. 2 P002 NESTLE BRASIL",
+            "accountCode": "2120101001",
+            "value": 85
+          },
+          "system": {
+            "id": "sys-2120101001-007",
+            "date": "13/08/2026",
+            "documentId": "156364",
+            "description": "DEBITO EM CONTA Nº 156364 REF. / RECEBIMENTO DOC. 2 P002 NESTLE BRASIL",
+            "sourceCode": "Contas a Pagar",
+            "value": 85
+          }
+        },
+        {
+          "id": "row-2120101001-008",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-008",
+            "date": "13/08/2026",
+            "documentId": "156365",
+            "description": "DEBITO EM CONTA Nº 156365 REF. / RECEBIMENTO DOC. 2 P003 NESTLE BRASIL",
+            "accountCode": "2120101001",
+            "value": 10
+          },
+          "system": {
+            "id": "sys-2120101001-008",
+            "date": "13/08/2026",
+            "documentId": "156365",
+            "description": "DEBITO EM CONTA Nº 156365 REF. / RECEBIMENTO DOC. 2 P003 NESTLE BRASIL",
+            "sourceCode": "Contas a Pagar",
+            "value": 10
+          }
+        },
+        {
+          "id": "row-2120101001-009",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-009",
+            "date": "13/08/2026",
+            "documentId": "2 P002",
+            "description": "DESCONTOS OBTIDOS DOC. 2 P002 NESTLE / BRASIL LTDA DOCUMENTO A PARCELAR 2000",
+            "accountCode": "2120101001",
+            "value": 100
+          },
+          "system": {
+            "id": "sys-2120101001-009",
+            "date": "13/08/2026",
+            "documentId": "2 P002",
+            "description": "DESCONTOS OBTIDOS DOC. 2 P002 NESTLE / BRASIL LTDA DOCUMENTO A PARCELAR 2000",
+            "sourceCode": "Contas a Pagar",
+            "value": 100
+          }
+        },
+        {
+          "id": "row-2120101001-010",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-010",
+            "date": "13/08/2026",
+            "documentId": "2 P003",
+            "description": "DESCONTOS OBTIDOS CAP DOC. 2 P003 / NESTLE BRASIL LTDA DOCUMENTO A PARCELAR",
+            "accountCode": "2120101001",
+            "value": 600
+          },
+          "system": {
+            "id": "sys-2120101001-010",
+            "date": "13/08/2026",
+            "documentId": "2 P003",
+            "description": "DESCONTOS OBTIDOS CAP DOC. 2 P003 / NESTLE BRASIL LTDA DOCUMENTO A PARCELAR",
+            "sourceCode": "Contas a Pagar",
+            "value": 600
+          }
+        },
+        {
+          "id": "row-2120101001-011",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-011",
+            "date": "13/08/2026",
+            "documentId": "2/REC",
+            "description": "LANC. DOC. 2/REC NESTLE BRASIL / LTDAVENCIMENTO: 18/08/2026 DOCUMENTO",
+            "accountCode": "2120101001",
+            "value": -300
+          },
+          "system": {
+            "id": "sys-2120101001-011",
+            "date": "13/08/2026",
+            "documentId": "2/REC",
+            "description": "LANC. DOC. 2/REC NESTLE BRASIL / LTDAVENCIMENTO: 18/08/2026 DOCUMENTO",
+            "sourceCode": "Contas a Pagar",
+            "value": -300
+          }
+        },
+        {
+          "id": "row-2120101001-012",
+          "status": "systemOnly",
+          "accounting": {
+            "id": "acc-2120101001-012",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "accountCode": "2120101001",
+            "value": 0
+          },
+          "system": {
+            "id": "sys-2120101001-012",
+            "date": "13/08/2026",
+            "documentId": "2REC",
+            "description": "Docto Origem - documento a parcelar 2000",
+            "sourceCode": "Contas a Pagar",
+            "value": -2000
+          }
+        },
+        {
+          "id": "row-2120101001-013",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-013",
+            "date": "24/08/2026",
+            "documentId": "DHOSPSTAR257/NF",
+            "description": "LANC. DOC. DHOSPSTAR257/NF NESTLEBRASIL / LTDA VENCIMENTO: 29/08/2026",
+            "accountCode": "2120101001",
+            "value": -5000
+          },
+          "system": {
+            "id": "sys-2120101001-013",
+            "date": "24/08/2026",
+            "documentId": "DHOSPSTAR257/NF",
+            "description": "LANC. DOC. DHOSPSTAR257/NF NESTLEBRASIL / LTDA VENCIMENTO: 29/08/2026",
+            "sourceCode": "Contas a Pagar",
+            "value": -5000
+          }
+        },
+        {
+          "id": "row-2120101001-014",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-014",
+            "date": "26/08/2026",
+            "documentId": "LC260826073",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "accountCode": "2120101001",
+            "value": -6300.3
+          },
+          "system": {
+            "id": "sys-2120101001-014",
+            "date": "26/08/2026",
+            "documentId": "LC260826073",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "sourceCode": "Contabilidade",
+            "value": -6300.3
+          }
+        },
+        {
+          "id": "row-2120101001-015",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-015",
+            "date": "27/08/2026",
+            "documentId": "333/ALG",
+            "description": "LANC. DOC. 333/ALG / TRANSPORTADORAEXPRESSO SANTA LUZIA LTDA",
+            "accountCode": "2120101001",
+            "value": -15000
+          },
+          "system": {
+            "id": "sys-2120101001-015",
+            "date": "27/08/2026",
+            "documentId": "333/ALG",
+            "description": "LANC. DOC. 333/ALG / TRANSPORTADORAEXPRESSO SANTA LUZIA LTDA",
+            "sourceCode": "Contas a Pagar",
+            "value": -15000
+          }
+        },
+        {
+          "id": "row-2120101001-016",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2120101001-016",
+            "date": "11/09/2026",
+            "documentId": "LC260911074",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "accountCode": "2120101001",
+            "value": -2450
+          },
+          "system": {
+            "id": "sys-2120101001-016",
+            "date": "11/09/2026",
+            "documentId": "LC260911074",
+            "description": "PROVISAO FORNECEDOR PROPAGANDA",
+            "sourceCode": "Contabilidade",
+            "value": -2450
+          }
+        },
+        {
+          "id": "row-2120101001-017",
+          "status": "systemOnly",
+          "accounting": {
+            "id": "acc-2120101001-017",
+            "date": "",
+            "documentId": "",
+            "description": "",
+            "accountCode": "2120101001",
+            "value": 0
+          },
+          "system": {
+            "id": "sys-2120101001-017",
+            "date": "27/08/2026",
+            "documentId": "2708BB",
+            "description": "Docto Efet. - Doc 2708BB",
+            "sourceCode": "Contas a Pagar",
+            "value": -3500
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-2120101001",
+        "accountCode": "2120101001",
+        "accountName": "FORNECEDORES DIVERSOS",
+        "systems": [
+          {
+            "systemId": "ALMOXARIFADO",
+            "systemName": "Almoxarifado",
+            "reportIds": [
+              "Livros Fiscais",
+              "Manutenção",
+              "MODULO INEXISTENTE",
+              "Mútuo"
+            ]
+          },
+          {
+            "systemId": "CONTAS_PAGAR",
+            "systemName": "Contas a Pagar",
+            "reportIds": [
+              "Controle Financeiro",
+              "Distribuição de Aluguel",
+              "DocFiscAll",
+              "EFD-Social"
+            ]
+          },
+          {
+            "systemId": "CONTAS_RECEBER",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "Compras 2000",
+              "Condominio",
+              "Contabilidade",
+              "Contas a Pagar"
+            ]
+          },
+          {
+            "systemId": "CONTROLE_FINANCEIRO",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "FrontOffice",
+              "Frontoffice - VHFCaixa",
+              "GAP",
+              "Gerador de Relatórios, Consultas e Gráficos"
+            ]
+          },
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "accountId": "conta-2180102001",
+      "accountCode": "2180102001",
+      "accountName": "ADIANTAMENTO DE CLIENTES",
+      "systemOpenUrl": "",
+      "summary": {
+        "saldoContabil": 77188.91,
+        "valorSistema": 77188.91,
+        "diferenca": 0,
+        "status": "divergent",
+        "statusLabel": "Divergente"
+      },
+      "attachments": [],
+      "aiState": {
+        "analyzed": false,
+        "emptyMessage": "Nenhuma analise realizada. Clique em 'Analisar com IA' para buscar sugestoes de conciliacao automaticamente.",
+        "suggestions": []
+      },
+      "rows": [
+        {
+          "id": "row-2180102001-001",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2180102001-001",
+            "date": "01/07/2026",
+            "documentId": "LC260701031",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "2180102001",
+            "value": -9900
+          },
+          "system": {
+            "id": "sys-2180102001-001",
+            "date": "01/07/2026",
+            "documentId": "LC260701031",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": -9900
+          }
+        },
+        {
+          "id": "row-2180102001-002",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2180102001-002",
+            "date": "20/07/2026",
+            "documentId": "LC260720032",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "2180102001",
+            "value": -640.25
+          },
+          "system": {
+            "id": "sys-2180102001-002",
+            "date": "20/07/2026",
+            "documentId": "LC260720032",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": -640.25
+          }
+        },
+        {
+          "id": "row-2180102001-003",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2180102001-003",
+            "date": "09/08/2026",
+            "documentId": "LC260809033",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "2180102001",
+            "value": -1745.55
+          },
+          "system": {
+            "id": "sys-2180102001-003",
+            "date": "09/08/2026",
+            "documentId": "LC260809033",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": -1745.55
+          }
+        },
+        {
+          "id": "row-2180102001-004",
+          "status": "divergent",
+          "accounting": {
+            "id": "acc-2180102001-004",
+            "date": "10/08/2026",
+            "documentId": "45432",
+            "description": "RECEBIMENTO EM PIX",
+            "accountCode": "2180102001",
+            "value": -3422.76
+          },
+          "system": {
+            "id": "sys-2180102001-004",
+            "date": "10/08/2026",
+            "documentId": "45432",
+            "description": "RECEBIMENTO EM PIX",
+            "sourceCode": "Contabilidade",
+            "value": -3422.76
+          }
+        },
+        {
+          "id": "row-2180102001-005",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2180102001-005",
+            "date": "20/08/2026",
+            "documentId": "1/1",
+            "description": "ERRO PROPOSITAL DOCUMENTO VAZIO",
+            "accountCode": "2180102001",
+            "value": -2100
+          },
+          "system": {
+            "id": "sys-2180102001-005",
+            "date": "20/08/2026",
+            "documentId": "1/1",
+            "description": "ERRO PROPOSITAL DOCUMENTO VAZIO",
+            "sourceCode": "Contabilidade",
+            "value": -2100
+          }
+        },
+        {
+          "id": "row-2180102001-006",
+          "status": "aligned",
+          "accounting": {
+            "id": "acc-2180102001-006",
+            "date": "16/09/2026",
+            "documentId": "LC260916034",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "accountCode": "2180102001",
+            "value": -299.99
+          },
+          "system": {
+            "id": "sys-2180102001-006",
+            "date": "16/09/2026",
+            "documentId": "LC260916034",
+            "description": "ADIANTAMENTO CLIENTE RESERVA",
+            "sourceCode": "Contabilidade",
+            "value": -299.99
+          }
+        }
+      ],
+      "mapping": {
+        "accountId": "conta-2180102001",
+        "accountCode": "2180102001",
+        "accountName": "ADIANTAMENTO DE CLIENTES",
+        "systems": [
+          {
+            "systemId": "ALMOXARIFADO",
+            "systemName": "Almoxarifado",
+            "reportIds": [
+              "Livros Fiscais",
+              "Manutenção",
+              "MODULO INEXISTENTE",
+              "Mútuo"
+            ]
+          },
+          {
+            "systemId": "CONTAS_PAGAR",
+            "systemName": "Contas a Pagar",
+            "reportIds": [
+              "Controle Financeiro",
+              "Distribuição de Aluguel",
+              "DocFiscAll",
+              "EFD-Social"
+            ]
+          },
+          {
+            "systemId": "CONTAS_RECEBER",
+            "systemName": "Contas a Receber",
+            "reportIds": [
+              "Compras 2000",
+              "Condominio",
+              "Contabilidade",
+              "Contas a Pagar"
+            ]
+          },
+          {
+            "systemId": "CONTROLE_FINANCEIRO",
+            "systemName": "Controle Financeiro",
+            "reportIds": [
+              "FrontOffice",
+              "Frontoffice - VHFCaixa",
+              "GAP",
+              "Gerador de Relatórios, Consultas e Gráficos"
+            ]
+          },
+          {
+            "systemId": "PMS",
+            "systemName": "PMS",
+            "reportIds": [
+              "Administração de Shoppings",
+              "Almoxarifado",
+              "Aplicação Servidora do EFD-Social",
+              "Contas a Receber",
+              "Evento"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

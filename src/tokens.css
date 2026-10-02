@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "TOTVS Pro";
+  src: url("/assets/totvs-pro-variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --ani-font-family: "TOTVS Pro", "Open Sans", Arial, sans-serif;
+  --ani-color-brand: #00445b;
+  --ani-color-brand-hover: #002f40;
+  --ani-color-brand-strong: #000e19;
+  --ani-color-accent: #00dbff;
+  --ani-color-header: #091a22;
+  --ani-color-page: #fbfcfe;
+  --ani-color-surface: #ffffff;
+  --ani-color-surface-nav: #f9f9fa;
+  --ani-color-surface-subtle: #f0f5fa;
+  --ani-color-border: #dae2ed;
+  --ani-color-border-soft: #ecf1f8;
+  --ani-color-text: #091a22;
+  --ani-color-text-secondary: #444954;
+  --ani-color-text-muted: #6b7280;
+  --ani-color-positive: #107048;
+  --ani-color-positive-bg: #e6f4ed;
+  --ani-color-warning: #8a5d00;
+  --ani-color-warning-bg: #fcf6e3;
+  --ani-color-negative: #9b2d27;
+  --ani-color-negative-bg: #f6e6e5;
+  --ani-color-info-bg: #e5fcff;
+  --ani-space-1: 4px;
+  --ani-space-2: 8px;
+  --ani-space-3: 12px;
+  --ani-space-4: 16px;
+  --ani-space-5: 20px;
+  --ani-space-6: 24px;
+  --ani-radius-card: 4px;
+  --ani-radius-control: 8px;
+  --ani-radius-pill: 999px;
+  --ani-shadow-sm: 0 1px 4px rgba(11, 16, 24, 0.12);
+  --ani-shadow-md: 0 8px 24px rgba(11, 16, 24, 0.16);
+  --ani-shadow-modal: 0 16px 40px rgba(11, 16, 24, 0.24);
+  --ani-duration-fast: 150ms;
+  --ani-duration-standard: 250ms;
+  --ani-ease-standard: cubic-bezier(.35, 0, .1, 1);
+  --ani-control-height: 44px;
+  --ani-header-height: 60px;
+  color: var(--ani-color-text);
+  background: var(--ani-color-page);
+  font-family: var(--ani-font-family);
+  font-synthesis: none;
+}

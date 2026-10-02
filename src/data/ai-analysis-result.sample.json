@@ -1,0 +1,369 @@
+{
+  "analyzed": true,
+  "emptyMessage": "",
+  "summary": {
+    "totalSuggestions": 13,
+    "totalAccepted": 0,
+    "totalPending": 13,
+    "totalRejected": 0
+  },
+  "suggestions": [
+    {
+      "id": "match_001",
+      "status": "pending",
+      "confidencePercent": 91,
+      "matchCriteria": [
+        "lote",
+        "valor+data"
+      ],
+      "batch": {
+        "transactionCount": 3,
+        "totalAmount": 6000.0,
+        "currencySymbol": "R$",
+        "lines": [
+          {
+            "description": "Pgto Forn. Alpha Ltda",
+            "amount": 2000.0
+          },
+          {
+            "description": "Pgto Forn. Beta S.A.",
+            "amount": 2500.0
+          },
+          {
+            "description": "Pgto Forn. Gamma ME",
+            "amount": 1500.0
+          }
+        ]
+      },
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "LOTE-2024-001",
+          "date": "14/08/2024",
+          "description": "Pagamentos Lote - Fornecedores Diversos",
+          "totalAmount": 6000.0
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "CTB-8845",
+          "date": "14/08/2024",
+          "description": "Pgto Fornecedores - Lote Agosto",
+          "totalAmount": 6000.0
+        }
+      },
+      "reasoning": "A soma de 3 movimentos no Sistema Origem totaliza R$ 6.000,00 e corresponde exatamente ao lançamento único na Contabilidade. As datas coincidem, indicando pagamento consolidado em lote bancário."
+    },
+    {
+      "id": "match_002",
+      "status": "pending",
+      "confidencePercent": 78,
+      "matchCriteria": [
+        "divergencia_data"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "SYS-4421",
+          "date": "15/08/2024",
+          "description": "Pagamento Fornecedor XYZ",
+          "totalAmount": 15000.0
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "DOC-002",
+          "date": "19/08/2024",
+          "description": "Pagamento Fornecedor XYZ",
+          "totalAmount": 15000.0
+        }
+      },
+      "reasoning": "Valores idênticos e descrições compatíveis. A data do sistema é um dia após a contabilidade, compatível com compensação bancária após o fim de semana."
+    },
+    {
+      "id": "match_003",
+      "status": "pending",
+      "confidencePercent": 65,
+      "matchCriteria": [
+        "divergencia_valor"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "SYS-7788",
+          "date": "16/08/2024",
+          "description": "Tarifa bancaria agosto",
+          "totalAmount": 89.9
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "CTB-9012",
+          "date": "16/08/2024",
+          "description": "Tarifas servicos bancarios",
+          "totalAmount": 89.8
+        }
+      },
+      "reasoning": "Mesma data e descrições relacionadas à tarifa bancária. Há pequena diferença de valor (R$ 0,10) que pode refletir arredondamento ou taxa adicional."
+    },
+    {
+      "id": "match_004",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "planilha_desbalanceada"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "45432",
+          "date": "10/08/2026",
+          "description": "RECEBIMENTO EM PIX",
+          "totalAmount": 3390.64
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "45432",
+          "date": "10/08/2026",
+          "description": "RECEBIMENTO EM PIX",
+          "totalAmount": 3422.76
+        }
+      },
+      "reasoning": "Conta 1110201002 (BANCO DO BRASIL C/C 5293-0): divergencia real detectada na base IRON (empresa 202) - motivo 'planilha_desbalanceada'. Saldo da capa R$ 3.390,64 x razao analitico R$ 3.422,76, diferenca de R$ 32,12."
+    },
+    {
+      "id": "match_005",
+      "status": "pending",
+      "confidencePercent": 75,
+      "matchCriteria": [
+        "planilha_desbalanceada"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "525212",
+          "date": "24/08/2026",
+          "description": "PAGO CHEQUE NR.",
+          "totalAmount": -900
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "525212",
+          "date": "24/08/2026",
+          "description": "PAGO CHEQUE NR.",
+          "totalAmount": 800
+        }
+      },
+      "reasoning": "Conta 1110201002 (BANCO DO BRASIL C/C 5293-0): divergencia real detectada na base IRON (empresa 202) - motivo 'planilha_desbalanceada'. Saldo da capa R$ -900,00 x razao analitico R$ 800,00, diferenca de R$ 1.700,00."
+    },
+    {
+      "id": "match_006",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "somente_razao"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "0508/FT",
+          "date": "05/08/2026",
+          "description": "",
+          "totalAmount": 1333.33
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "0508/FT",
+          "date": "05/08/2026",
+          "description": "LANC. DOC. 0508/FT A  L HOTEIS TURISMOE / EVENTOS LTDA VENCIMENTO:",
+          "totalAmount": 1333.33
+        }
+      },
+      "reasoning": "Conta 1120101001 (DUPLICATAS A RECEBER COBRANÇA): divergencia real detectada na base IRON (empresa 202) - motivo 'somente_razao'. Saldo da capa R$ 1.333,33 x razao analitico R$ 1.333,33, diferenca de R$ 0,00."
+    },
+    {
+      "id": "match_007",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "somente_razao"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "0508/FT",
+          "date": "05/08/2026",
+          "description": "",
+          "totalAmount": 1333.33
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "0508/FT",
+          "date": "05/08/2026",
+          "description": "LANC. DOC. 0508/FT A  L HOTEIS TURISMOE / EVENTOS LTDA VENCIMENTO:",
+          "totalAmount": 1333.33
+        }
+      },
+      "reasoning": "Conta 1120101001 (DUPLICATAS A RECEBER COBRANÇA): divergencia real detectada na base IRON (empresa 202) - motivo 'somente_razao'. Saldo da capa R$ 1.333,33 x razao analitico R$ 1.333,33, diferenca de R$ 0,00."
+    },
+    {
+      "id": "match_008",
+      "status": "pending",
+      "confidencePercent": 75,
+      "matchCriteria": [
+        "planilha_desbalanceada"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "525212",
+          "date": "24/08/2026",
+          "description": "PAGO CHEQUE NR.",
+          "totalAmount": -800
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "525212",
+          "date": "24/08/2026",
+          "description": "PAGO CHEQUE NR.",
+          "totalAmount": -2500
+        }
+      },
+      "reasoning": "Conta 1120101001 (DUPLICATAS A RECEBER COBRANÇA): divergencia real detectada na base IRON (empresa 202) - motivo 'planilha_desbalanceada'. Saldo da capa R$ -800,00 x razao analitico R$ -2.500,00, diferenca de R$ 1.700,00."
+    },
+    {
+      "id": "match_009",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "somente_sistema_nao_integrado"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "0108DI",
+          "date": "05/08/2026",
+          "description": "Docto Efet. - Doc 0108DI",
+          "totalAmount": 0
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "",
+          "date": "",
+          "description": "",
+          "totalAmount": 0
+        }
+      },
+      "reasoning": "Conta 1120101001 (DUPLICATAS A RECEBER COBRANÇA): divergencia real detectada na base IRON (empresa 202) - motivo 'somente_sistema_nao_integrado'. Saldo da capa R$ 0,00 x razao analitico R$ 0,00, diferenca de R$ 0,00."
+    },
+    {
+      "id": "match_010",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "somente_sistema_nao_integrado"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "15080",
+          "date": "15/08/2026",
+          "description": "Docto Efet. - Evento Totvs Hotelaria - Hackaton",
+          "totalAmount": 0
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "",
+          "date": "",
+          "description": "",
+          "totalAmount": 0
+        }
+      },
+      "reasoning": "Conta 1120101001 (DUPLICATAS A RECEBER COBRANÇA): divergencia real detectada na base IRON (empresa 202) - motivo 'somente_sistema_nao_integrado'. Saldo da capa R$ 0,00 x razao analitico R$ 0,00, diferenca de R$ 0,00."
+    },
+    {
+      "id": "match_011",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "somente_sistema"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "2REC",
+          "date": "13/08/2026",
+          "description": "Docto Origem - documento a parcelar 2000",
+          "totalAmount": 0
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "",
+          "date": "",
+          "description": "",
+          "totalAmount": 0
+        }
+      },
+      "reasoning": "Conta 2120101001 (FORNECEDORES DIVERSOS): divergencia real detectada na base IRON (empresa 202) - motivo 'somente_sistema'. Saldo da capa R$ 0,00 x razao analitico R$ 0,00, diferenca de R$ 0,00."
+    },
+    {
+      "id": "match_012",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "somente_sistema_nao_integrado"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "2708BB",
+          "date": "27/08/2026",
+          "description": "Docto Efet. - Doc 2708BB",
+          "totalAmount": 0
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "",
+          "date": "",
+          "description": "",
+          "totalAmount": 0
+        }
+      },
+      "reasoning": "Conta 2120101001 (FORNECEDORES DIVERSOS): divergencia real detectada na base IRON (empresa 202) - motivo 'somente_sistema_nao_integrado'. Saldo da capa R$ 0,00 x razao analitico R$ 0,00, diferenca de R$ 0,00."
+    },
+    {
+      "id": "match_013",
+      "status": "pending",
+      "confidencePercent": 90,
+      "matchCriteria": [
+        "planilha_desbalanceada"
+      ],
+      "batch": null,
+      "comparison": {
+        "sourceSystem": {
+          "label": "Sistema Origem",
+          "documentId": "45432",
+          "date": "10/08/2026",
+          "description": "RECEBIMENTO EM PIX",
+          "totalAmount": -3422.76
+        },
+        "accounting": {
+          "label": "Contabilidade",
+          "documentId": "45432",
+          "date": "10/08/2026",
+          "description": "RECEBIMENTO EM PIX",
+          "totalAmount": -3454.88
+        }
+      },
+      "reasoning": "Conta 2180102001 (ADIANTAMENTO DE CLIENTES): divergencia real detectada na base IRON (empresa 202) - motivo 'planilha_desbalanceada'. Saldo da capa R$ -3.422,76 x razao analitico R$ -3.454,88, diferenca de R$ 32,12."
+    }
+  ]
+}
