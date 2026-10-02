@@ -17,6 +17,18 @@ if (!drilldownSource.includes('className="comparison-ledgers"') || !drilldownSou
 if (drilldownSource.includes('className="workspace-tabs"')) {
   failures.push("V2 não deve incorporar o workspace em abas exclusivo da V1");
 }
+if (!source.includes("sessionAttachments") || !source.includes('sessionStorage.setItem("comparison-home-attachments"') || !source.includes('<AttachDocumentDialog account={homeDialog.target}')) {
+  failures.push("Home deve anexar documentos e manter os anexos durante a sessão");
+}
+if (!source.includes("URL.createObjectURL(new Blob") || !source.includes("auditoria-${account.code")) {
+  failures.push("Home deve gerar um arquivo CSV real para auditoria");
+}
+if (!source.includes("home-approval-indicator") || !source.includes('sessionStorage.setItem("comparison-home-approved"') || !source.includes('className={`home-state ${account.tone}`}')) {
+  failures.push("Aprovação deve aparecer separada do status contábil original");
+}
+if (!source.includes("dailySeriesBySystem") || !source.includes("setDailySystem") || !source.includes("setDailyStatus")) {
+  failures.push("Filtros da Visão Geral Diária devem alterar os dados do gráfico");
+}
 
 function attribute(opening, name) {
   return opening.attributes.find((item) => item.type === "JSXAttribute" && item.name.name === name);
